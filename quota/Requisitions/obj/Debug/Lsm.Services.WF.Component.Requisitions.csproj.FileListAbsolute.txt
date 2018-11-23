@@ -1,0 +1,6 @@
+C:\Users\Falcorp\Documents\Visual Studio 2015\Projects\Lsm\Requisitions\bin\Debug\Requisitions.dll.config
+C:\Users\Falcorp\Documents\Visual Studio 2015\Projects\Lsm\Requisitions\bin\Debug\Requisitions.dll
+C:\Users\Falcorp\Documents\Visual Studio 2015\Projects\Lsm\Requisitions\bin\Debug\Requisitions.pdb
+C:\Users\Falcorp\Documents\Visual Studio 2015\Projects\Lsm\Requisitions\obj\Debug\Lsm.Services.WF.Component.Requisitions.csprojResolveAssemblyReference.cache
+C:\Users\Falcorp\Documents\Visual Studio 2015\Projects\Lsm\Requisitions\obj\Debug\Requisitions.dll
+C:\Users\Falcorp\Documents\Visual Studio 2015\Projects\Lsm\Requisitions\obj\Debug\Requisitions.pdb

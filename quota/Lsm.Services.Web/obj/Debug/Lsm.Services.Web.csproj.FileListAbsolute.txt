@@ -1,0 +1,6 @@
+C:\Users\Falcorp\Documents\Visual Studio 2015\Projects\Lsm\Lsm.Services.Web\bin\Debug\Lsm.Services.Web.dll.config
+C:\Users\Falcorp\Documents\Visual Studio 2015\Projects\Lsm\Lsm.Services.Web\bin\Debug\Lsm.Services.Web.dll
+C:\Users\Falcorp\Documents\Visual Studio 2015\Projects\Lsm\Lsm.Services.Web\bin\Debug\Lsm.Services.Web.pdb
+C:\Users\Falcorp\Documents\Visual Studio 2015\Projects\Lsm\Lsm.Services.Web\obj\Debug\Lsm.Services.Web.csprojResolveAssemblyReference.cache
+C:\Users\Falcorp\Documents\Visual Studio 2015\Projects\Lsm\Lsm.Services.Web\obj\Debug\Lsm.Services.Web.dll
+C:\Users\Falcorp\Documents\Visual Studio 2015\Projects\Lsm\Lsm.Services.Web\obj\Debug\Lsm.Services.Web.pdb

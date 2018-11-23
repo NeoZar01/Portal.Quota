@@ -1,0 +1,4 @@
+C:\Users\Falcorp\Documents\Visual Studio 2015\Projects\Lsm\Lsm.Web\obj\Debug\Lsm.Web.Quota.Broken.csprojResolveAssemblyReference.cache
+C:\Users\Falcorp\Documents\Visual Studio 2015\Projects\Lsm\Lsm.Web\obj\Debug\DoE.Web.Mvc.Api.EntityType.resources
+C:\Users\Falcorp\Documents\Visual Studio 2015\Projects\Lsm\Lsm.Web\obj\Debug\DoE.Web.Mvc.Api.Resources.resources
+C:\Users\Falcorp\Documents\Visual Studio 2015\Projects\Lsm\Lsm.Web\obj\Debug\Lsm.Web.Quota.Broken.csproj.GenerateResource.Cache
