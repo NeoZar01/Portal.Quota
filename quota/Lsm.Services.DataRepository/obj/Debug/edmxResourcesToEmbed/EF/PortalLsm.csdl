@@ -125,25 +125,6 @@
     <Property Name="Editable" Type="Boolean" Nullable="false" />
     <Property Name="Recallable" Type="Boolean" Nullable="false" />
   </EntityType>
-  <EntityType Name="Requisition">
-    <Key>
-      <PropertyRef Name="Id" />
-      <PropertyRef Name="InstanceId" />
-      <PropertyRef Name="ReqNO" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="InstanceId" Type="Guid" Nullable="false" />
-    <Property Name="ReqNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="EmisToken" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Calendar" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CreationDate" Type="DateTime" Precision="3" />
-    <Property Name="LastModifiedDate" Type="DateTime" Precision="3" />
-    <Property Name="GrFrom" Type="Byte" />
-    <Property Name="GrTo" Type="Byte" />
-    <Property Name="State" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="TotalPrice" Type="Decimal" Precision="19" Scale="4" annotation:StoreGeneratedPattern="Computed" />
-    <Property Name="WINumber" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="RequisitionsNorm">
     <Key>
       <PropertyRef Name="Id" />
@@ -179,7 +160,6 @@
     <EntitySet Name="InventoryRequests" EntityType="Self.InventoryRequest" />
     <EntitySet Name="Publishers" EntityType="Self.Publisher" />
     <EntitySet Name="ReqStatus" EntityType="Self.ReqStatu" />
-    <EntitySet Name="Requisitions" EntityType="Self.Requisition" />
     <EntitySet Name="RequisitionsNorms" EntityType="Self.RequisitionsNorm" />
     <EntitySet Name="Schools" EntityType="Portal.LsmModel.School" />
     <EntitySet Name="req_vwOrderItems" EntityType="Portal.LsmModel.req_vwOrderItems" />
@@ -189,6 +169,9 @@
     <EntitySet Name="vw_RequisitionsNorms" EntityType="Portal.LsmModel.vw_RequisitionsNorms" />
     <EntitySet Name="vw_ShoppingCardItems" EntityType="Portal.LsmModel.vw_ShoppingCardItems" />
     <EntitySet Name="vwTotalSubcityPerCircuits" EntityType="Portal.LsmModel.vwTotalSubcityPerCircuit" />
+    <EntitySet Name="Requisitions" EntityType="Portal.LsmModel.Requisition" />
+    <EntitySet Name="InterfaceSurveys" EntityType="Portal.LsmModel.InterfaceSurvey" />
+    <EntitySet Name="SurveysEntities" EntityType="Portal.LsmModel.SurveysEntity" />
   </EntityContainer>
   <EntityType Name="School">
     <Key>
@@ -430,5 +413,55 @@
     <Property Name="Requisitions" Type="Int32" />
     <Property Name="TotalPrice" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="BookYear" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Requisition">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="InstanceId" />
+      <PropertyRef Name="ReqNO" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InstanceId" Type="Guid" Nullable="false" />
+    <Property Name="ProcessCaseToken" Type="String" MaxLength="124" FixedLength="false" Unicode="false" />
+    <Property Name="ReqNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmisKey" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+    <Property Name="Calendar" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="GrFrom" Type="Byte" />
+    <Property Name="GrTo" Type="Byte" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SurveyKey" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="TotalPrice" Type="Decimal" Precision="19" Scale="4" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="InterfaceSurvey">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="InterfaceKey" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="SurveyKey" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="EntityType" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="AffectedEntities" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ExpiresOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Label" Type="String" MaxLength="144" FixedLength="false" Unicode="false" />
+    <Property Name="Curator" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Data_001" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Data_002" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Data_003" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Data_004" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Data_005" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IsEffective" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="SurveysEntity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="InterfaceSurveyId" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="EntityId" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="InstalledOn" Type="DateTime" Precision="3" />
   </EntityType>
 </Schema>

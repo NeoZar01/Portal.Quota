@@ -12,6 +12,8 @@ namespace DoE.Lsm.Web.Controllers
     using Logger;
     using Data.Repositories;
     using System.Threading.Tasks;
+    using ShoppingCart.Api;
+    using ShoppingCart.Norms.Validations.Api;
 
     [Authorize]
     public class HomeController : BaseController
@@ -21,7 +23,7 @@ namespace DoE.Lsm.Web.Controllers
         /// </summary>
         private readonly Dictionary<string, DashboardFactoryViewModel> _entityDashBoard = new Dictionary<string, DashboardFactoryViewModel>();
 
-        public HomeController(ILogger logger, IRepositoryStoreManager dataStore) : base(logger, dataStore)
+        public HomeController(ILogger logger, IRepositoryStoreManager dataStore, IShoppingCartRepository shoppingCart, IValidationCallbackContainer validationContainer)  : base(logger, dataStore, shoppingCart, validationContainer)
         {
             _entityDashBoard.Add(EntityType.School, new SchoolDashboardViewModel());
             _entityDashBoard.Add(EntityType.CircuitManager, new CircuitDashboardViewModel());
@@ -40,9 +42,7 @@ namespace DoE.Lsm.Web.Controllers
             if (string.IsNullOrEmpty(User.Identity.GetRole()) && string.IsNullOrEmpty(User.Identity.GetToken()))
                 return View();
 
-            string testUser = User.Identity.GetRole();
-
-            return View(await _entityDashBoard[User.Identity.GetRole()].TakeModel(User.Identity.GetToken(), _repositoriesDataStore));
+            return View(await _entityDashBoard[User.Identity.GetRole()].ReturnModel(_repositoriesDataStore , _validationContainer , null, User.Identity.GetToken()));
         }
 
 

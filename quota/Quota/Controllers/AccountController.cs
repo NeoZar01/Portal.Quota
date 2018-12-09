@@ -43,7 +43,7 @@ namespace DoE.Lsm.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        [LogSessionToMonitor]
+        [SessionTracker]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
 
@@ -249,7 +249,7 @@ namespace DoE.Lsm.Web.Controllers
         // POST: /Account/LogOff
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [ClearSessionCache]
+        [ClearCache]
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
@@ -270,7 +270,7 @@ namespace DoE.Lsm.Web.Controllers
         [HttpPost]
         [Authorize(Roles = "Administrators")]
         [ValidateAntiForgeryToken]
-        [LogSessionToMonitor]
+        [SessionTracker]
         public async Task<ActionResult> ImpersonateUser([Bind(Include = "username")] ImpersonateViewModel model)
         {
 

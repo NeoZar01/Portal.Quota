@@ -17,11 +17,11 @@ namespace DoE.Lsm.Web
     {
         protected void Application_Start()
         {
+            DependencyResolver.SetResolver(new DependancyInjection(IoCConfig.LoadContainer()));
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            DependencyResolver.SetResolver(new DependancyInjection(IoCConfig.LoadContainer()));
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }

@@ -12,6 +12,29 @@ namespace DoE.Lsm.Data.Repositories  {
 
     public interface IRequisitionsRepository : IRepository<Requisition>
     {
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="instanceId"></param>
+        /// <returns></returns>        
+        bool MergeCondition(string instanceId, string requisitionNo, string emisCode, string calendar, out Requisition entity);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="instanceId"></param>
+        /// <param name="instanceReferenceValue"></param>
+        /// <param name="curator"></param>
+        /// <param name="minGrade"></param>
+        /// <param name="maxGrade"></param>
+        /// <param name="calendar"></param>
+        /// <param name="stage"></param>
+        /// <param name="state"></param>
+        /// <returns></returns>
+        Task<string> MergeUsingAsync<T>(string instanceId, string instanceReferenceValue, string emisCode, byte minGrade, byte maxGrade, string calendar, string status, string surveyKey) where T : class;
+
+
         /// <summary>
         /// 
         /// </summary>
@@ -44,29 +67,15 @@ namespace DoE.Lsm.Data.Repositories  {
         /// 
         /// </summary>
         /// <param name="entityId"></param>
-        /// <returns></returns>        
-        bool Exists([InstanceType("REQUISITION")]Guid entityId);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="entityId"></param>
         /// <returns></returns>
-        Task<bool> ExistsAsync([InstanceType("REQUISITION")]Guid entityId);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="entityId"></param>
-        /// <returns></returns>
-        Requisition FindByInstanceId([InstanceType("REQUISITION")]Guid entityId);
+        Requisition FindByInstanceId([InstanceType("Lsm.Requisitions")]Guid entityId);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="requisitionNo"></param>
         /// <returns></returns>
-        Task<Requisition> GetRequisitionByEntityIdAsync([InstanceType("REQUISITION")]Guid requisitionNo);
+        Task<Requisition> GetRequisitionByEntityIdAsync([InstanceType("Lsm.Requisitions")]Guid requisitionNo);
 
         /// <summary>
         /// 
@@ -84,20 +93,6 @@ namespace DoE.Lsm.Data.Repositories  {
         /// <param name="status"></param>
         /// <returns></returns>
         decimal TotalPricePerCalendar([Dimensions(Flavours.BookYear | Flavours.Calendar)] string emisId, string calendar, string status);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="entityId"></param>
-        /// <param name="reqNo"></param>
-        /// <param name="s"></param>
-        /// <param name="minGrade"></param>
-        /// <param name="maxGrade"></param>
-        /// <param name="calendar"></param>
-        /// <param name="stage"></param>
-        /// <param name="state"></param>
-        /// <returns></returns>
-        Task<string> MergeOnAsync([InstanceType("REQUISITION")]Guid entityId, string reqNo, School s, byte minGrade, byte maxGrade, string calendar, string stage, string state);
 
         /// <summary>
         /// 

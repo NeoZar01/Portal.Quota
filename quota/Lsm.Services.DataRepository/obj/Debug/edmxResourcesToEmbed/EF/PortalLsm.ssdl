@@ -1,5 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="Portal.LsmModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="InterfaceSurveys">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="InterfaceKey" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="SurveyKey" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="EntityType" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="AffectedEntities" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="EffectiveFrom" Type="datetime" Nullable="false" />
+    <Property Name="ExpiresOn" Type="datetime" Nullable="false" />
+    <Property Name="Label" Type="varchar" MaxLength="144" />
+    <Property Name="Curator" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="Data_001" Type="varchar" MaxLength="255" />
+    <Property Name="Data_002" Type="varchar" MaxLength="255" />
+    <Property Name="Data_003" Type="varchar" MaxLength="255" />
+    <Property Name="Data_004" Type="varchar" MaxLength="255" />
+    <Property Name="Data_005" Type="varchar" MaxLength="255" />
+    <Property Name="IsEffective" Type="bit" />
+  </EntityType>
+  <EntityType Name="SurveysEntities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="InterfaceSurveyId" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="EntityId" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="InstalledOn" Type="datetime" />
+  </EntityType>
   <EntityType Name="Schools">
     <Key>
       <PropertyRef Name="Id" />
@@ -164,16 +194,17 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="InstanceId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ProcessCaseToken" Type="varchar" MaxLength="124" />
     <Property Name="ReqNO" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="EmisToken" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="EmisKey" Type="nvarchar" MaxLength="36" Nullable="false" />
     <Property Name="Calendar" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="CreationDate" Type="datetime" />
     <Property Name="LastModifiedDate" Type="datetime" />
     <Property Name="GrFrom" Type="tinyint" />
     <Property Name="GrTo" Type="tinyint" />
-    <Property Name="State" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SurveyKey" Type="varchar" MaxLength="16" Nullable="false" />
     <Property Name="TotalPrice" Type="money" StoreGeneratedPattern="Computed" />
-    <Property Name="WINumber" Type="varchar" MaxLength="64" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'Portal.Lsm.Production.RequisitionsNorms' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -428,6 +459,8 @@ warning 6002: The table/view 'Portal.Lsm.Production.vwTotalSubcityPerCircuit' do
     <Property Name="BookYear" Type="nvarchar" MaxLength="9" Nullable="false" />
   </EntityType>
   <EntityContainer Name="PortalLsmModelStoreContainer">
+    <EntitySet Name="InterfaceSurveys" EntityType="Self.InterfaceSurveys" Schema="DataExtract" store:Type="Tables" />
+    <EntitySet Name="SurveysEntities" EntityType="Self.SurveysEntities" Schema="DataExtract" store:Type="Tables" />
     <EntitySet Name="Schools" EntityType="Self.Schools" Schema="MasterFile" store:Type="Tables" />
     <EntitySet Name="Authors" EntityType="Self.Authors" Schema="Production" store:Type="Tables" />
     <EntitySet Name="Bookmarks" EntityType="Self.Bookmarks" Schema="Production" store:Type="Tables" />

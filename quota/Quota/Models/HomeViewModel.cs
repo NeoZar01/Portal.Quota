@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace DoE.Lsm.Web.Models
 {
-    using DoE.Lsm;
-    using Annotations;
+
     using Data.Repositories;
+    using global::Lsm.Core.Global;
+    using ShoppingCart.Norms.Validations.Api;
+    using ShoppingCart.Norms.Validations.Rules;
 
     /// <summary>
     ///     
@@ -17,16 +19,31 @@ namespace DoE.Lsm.Web.Models
     public partial class SchoolDashboardViewModel : DashboardFactoryViewModel
     {
 
+
+        private RequisitionsSurveysValidationRule requisitionsValidationRule;
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="instanceId"></param>
         /// <returns></returns>
-        public override async Task<DashboardFactoryViewModel> TakeModel(string instanceId, IRepositoryStoreManager dataSource)
+        public override async Task<DashboardFactoryViewModel> ReturnModel(IRepositoryStoreManager repositoryManager, IValidationCallbackContainer callback , string instanceId,  string identityId)
         {
+
+            requisitionsValidationRule = new RequisitionsSurveysValidationRule();
+
+            string output = "";
+            var xprDate = repositoryManager.SnE.ExpiresOn;
+
+            requisitionsValidationRule.ActionRequisitionsValidationWorker(callback, xprDate,  repositoryManager.SnE.SurveyEntitiesInstallationKey , identityId,  out output);
+
             return await Task.FromResult(new SchoolDashboardViewModel
             {
-                Page = "_mainpagedashboard_school"
+                Page                        = "_mainpagedashboard_school",
+                ModelsStatusRequisitions    = output,
+                BookYear                    = repositoryManager.SnE.BookYear,
+                ExpiresOn                   = GlobalFormatics.ConvertToFormalFormat(xprDate, null),
+                DaysLeft                    = GlobalFormatics.RemainingDays(DateTime.Now , xprDate) 
             });
         }
     }
@@ -43,7 +60,7 @@ namespace DoE.Lsm.Web.Models
         /// </summary>
         /// <param name="instanceId"></param>
         /// <returns></returns>
-        public override async Task<DashboardFactoryViewModel> TakeModel(string instanceId, IRepositoryStoreManager dataSource)
+        public override async Task<DashboardFactoryViewModel> ReturnModel(IRepositoryStoreManager repositoryManager, IValidationCallbackContainer callback, string instanceId, string identityId)
         {
             return await Task.FromResult(new CircuitDashboardViewModel
             {
@@ -63,11 +80,11 @@ namespace DoE.Lsm.Web.Models
         /// </summary>
         /// <param name="instanceId"></param>
         /// <returns></returns>
-        public override async Task<DashboardFactoryViewModel> TakeModel(string instanceId, IRepositoryStoreManager dataSource)
+        public override async Task<DashboardFactoryViewModel> ReturnModel(IRepositoryStoreManager repositoryManager, IValidationCallbackContainer callback, string instanceId, string identityId)
         {
             return await Task.FromResult(new AdministratorDashboardViewModel
             {
-                Page = "_mainpagedashboard_administrator"
+                Page                        = "_mainpagedashboard_administrator"
             });
         }
     }
@@ -77,7 +94,7 @@ namespace DoE.Lsm.Web.Models
         public DashboardFactoryViewModel()
         { }
 
-        public virtual async Task<DashboardFactoryViewModel> TakeModel(string instanceId, IRepositoryStoreManager dataStore)
+        public virtual async Task<DashboardFactoryViewModel> ReturnModel(IRepositoryStoreManager repositoryManager, IValidationCallbackContainer callback, string instanceId, string identityId)
         { return await Task.FromResult(this); }
 
 
@@ -89,27 +106,27 @@ namespace DoE.Lsm.Web.Models
         /// <summary>
         /// 
         /// </summary>
+        public string ModelsStatusRequisitions { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public string BookYear { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public int SubmittedRequisitions { get; set; }
+        public string ExpiresOn { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public int SubmissionTotalPrice { get; set; }
+        public int DaysLeft { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public int InDrafts { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public int DraftsTotalPrice { get; set; }
+        public int InMemoryRequisitions { get; set; }
 
         /// <summary>
         /// 

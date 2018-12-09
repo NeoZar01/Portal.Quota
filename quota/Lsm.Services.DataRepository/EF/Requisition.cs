@@ -16,15 +16,16 @@ namespace DoE.Lsm.Data.Repositories.EF
     {
         public int Id { get; set; }
         public System.Guid InstanceId { get; set; }
+        public string ProcessCaseToken { get; set; }
         public string ReqNO { get; set; }
-        public string EmisToken { get; set; }
+        public string EmisKey { get; set; }
         public string Calendar { get; set; }
         public Nullable<System.DateTime> CreationDate { get; set; }
         public Nullable<System.DateTime> LastModifiedDate { get; set; }
         public Nullable<byte> GrFrom { get; set; }
         public Nullable<byte> GrTo { get; set; }
-        public string State { get; set; }
+        public string Status { get; set; }
+        public string SurveyKey { get; set; }
         public Nullable<decimal> TotalPrice { get; set; }
-        public string WINumber { get; set; }
     }
 }

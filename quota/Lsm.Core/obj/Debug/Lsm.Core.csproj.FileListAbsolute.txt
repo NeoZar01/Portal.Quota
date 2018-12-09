@@ -1,0 +1,5 @@
+C:\Users\Falcorp\Source\repos\Portal.Quota\quota\Lsm.Core\bin\Debug\Lsm.Core.dll
+C:\Users\Falcorp\Source\repos\Portal.Quota\quota\Lsm.Core\bin\Debug\Lsm.Core.pdb
+C:\Users\Falcorp\Source\repos\Portal.Quota\quota\Lsm.Core\obj\Debug\Lsm.Core.dll
+C:\Users\Falcorp\Source\repos\Portal.Quota\quota\Lsm.Core\obj\Debug\Lsm.Core.pdb
+C:\Users\Falcorp\Source\repos\Portal.Quota\quota\Lsm.Core\obj\Debug\Lsm.Core.csprojResolveAssemblyReference.cache

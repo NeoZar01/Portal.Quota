@@ -14,6 +14,13 @@ namespace DoE.Lsm.Data.Repositories
     using System.Linq.Expressions;
     using System.Threading.Tasks;
 
+
+
+    public enum ComparisonFlavor
+    {
+       Equal   
+    }
+
     public interface IRepository<TEntity> where TEntity : class  //only class types can be passed as 
     {
 
@@ -61,5 +68,17 @@ namespace DoE.Lsm.Data.Repositories
         /// <param name="Expression<Funct<TEntity,bool>>"> Lamdba expression</param>
         ///</summary
         IEnumerable<TEntity> ManyAsync(Expression<Func<TEntity, bool>> predicate);
+
+
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <param name="callback"></param>
+        ///// <param name="comparisonOperand"></param>
+        ///// <param name="comparisonFlavor"></param>
+        ///// <param name=""></param>
+        ///// <param name=""></param>
+        ///// <returns></returns>
+        //bool<TEntity> Exists(Expression<Func<TEntity, bool>> callback, object comparisonOperand, ComparisonFlavor comparisonFlavor, object outcomeX, object outcomeY );
     }
 }

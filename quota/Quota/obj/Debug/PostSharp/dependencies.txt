@@ -1,2 +1,2 @@
 C:\ProgramData\PostSharp\6.0.28\bin.Release\net471\PostSharp.Compiler.Engine.dll
-C:\Users\Falcorp\Documents\Visual Studio 2015\Projects\Lsm\Quota\obj\Debug\PostSharp\postsharp.config
+C:\Users\Falcorp\Source\repos\Portal.Quota\quota\Quota\obj\Debug\PostSharp\postsharp.config

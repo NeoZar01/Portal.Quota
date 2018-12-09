@@ -9,7 +9,7 @@ using Microsoft.AspNet.Identity;
 
 namespace DoE.Lsm.Web.Api.Filters
 {
-    public class LogSessionToMonitor : ActionFilterAttribute
+    public class SessionTracker : ActionFilterAttribute
     {
 
         private string sessionId;

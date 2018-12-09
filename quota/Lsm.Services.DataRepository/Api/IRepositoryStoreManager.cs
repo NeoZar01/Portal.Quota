@@ -4,10 +4,10 @@
     using UI;
     using Norms;
     using Persons;
-    using Repository.Inventories;
     using Subcity;
     using Orders;
     using Profile;
+    using Inventories;
 
     public interface IRepositoryStoreManager : IDisposable
     {
@@ -15,14 +15,18 @@
         ///<summary>
         ///      Handles inventory queries
         ///</summary>
-        InventoryRepository InventoryStore
+        InventoryRepository InventoryRegistry
+        { get; set; }
+
+
+        RequisitionRepository RequisitionsStoreManager
         { get; set; }
 
         ///<summary>
         ///     Handles scales and norms queries.
         ///   <remark> This should be a read-only class</remark>
         ///</summary>
-        NormsStandardsRepository StandardsAndNorms
+        SurveyRepository SnE
         { get; set; }
 
         #region ProfileStore
@@ -38,8 +42,7 @@
         PersonRepository Person
         { get; set; }
 
-        RequisitionRepository Requisitions
-        { get; set; }
+
 
         #endregion
 

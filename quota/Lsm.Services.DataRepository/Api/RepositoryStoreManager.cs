@@ -7,10 +7,10 @@ namespace DoE.Lsm.Data.Repositories
     using Persons;
     using EF;
     using Norms;
-    using Repository.Inventories;
     using Orders;
     using Subcity;
     using Profile;
+    using Inventories;
 
     public class RepositoryStoreManager : IRepositoryStoreManager
    {
@@ -36,9 +36,9 @@ namespace DoE.Lsm.Data.Repositories
                         _ProductionDbContext     = new PortalLsm();
                         _authenticationDbContext = new PortalAuth();
 
-                        InventoryStore          = new InventoryRepository(_ProductionDbContext, logger);
-                        StandardsAndNorms       = new NormsStandardsRepository(_ProductionDbContext, logger);
-                        Requisitions            = new RequisitionRepository(_ProductionDbContext, logger);
+                        InventoryRegistry          = new InventoryRepository(_ProductionDbContext, logger);
+                        SnE       = new SurveyRepository(_ProductionDbContext, logger);
+                        RequisitionsStoreManager            = new RequisitionRepository(_ProductionDbContext, logger);
                         Orders                  = new OrderRepository(_ProductionDbContext, logger);
                         RequisitionItem         = new InventoryRepository(_ProductionDbContext, logger);
                         Subcity                 = new RequisitionSubcityRepository(_ProductionDbContext, logger);
@@ -47,16 +47,16 @@ namespace DoE.Lsm.Data.Repositories
                         RequisitionOrderItems   = new RequisitionOrderItemsRepository(_ProductionDbContext, logger);
         }
 
-                public InventoryRepository      InventoryStore
+                public InventoryRepository             InventoryRegistry
                 { get; set; }
 
-                public NormsStandardsRepository          StandardsAndNorms
+                public SurveyRepository        SnE
                 { get; set; }
 
                 public ProfileRepository        ProfileStore
                 { get; set; }
 
-                public RequisitionRepository    Requisitions
+                public RequisitionRepository    RequisitionsStoreManager
                 { get; set; }
 
                 public OrderRepository          Orders

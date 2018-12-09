@@ -33,7 +33,6 @@ namespace DoE.Lsm.Data.Repositories.EF
         public virtual DbSet<InventoryRequest> InventoryRequests { get; set; }
         public virtual DbSet<Publisher> Publishers { get; set; }
         public virtual DbSet<ReqStatu> ReqStatus { get; set; }
-        public virtual DbSet<Requisition> Requisitions { get; set; }
         public virtual DbSet<RequisitionsNorm> RequisitionsNorms { get; set; }
         public virtual DbSet<School> Schools { get; set; }
         public virtual DbSet<req_vwOrderItems> req_vwOrderItems { get; set; }
@@ -43,5 +42,8 @@ namespace DoE.Lsm.Data.Repositories.EF
         public virtual DbSet<vw_RequisitionsNorms> vw_RequisitionsNorms { get; set; }
         public virtual DbSet<vw_ShoppingCardItems> vw_ShoppingCardItems { get; set; }
         public virtual DbSet<vwTotalSubcityPerCircuit> vwTotalSubcityPerCircuits { get; set; }
+        public virtual DbSet<Requisition> Requisitions { get; set; }
+        public virtual DbSet<InterfaceSurvey> InterfaceSurveys { get; set; }
+        public virtual DbSet<SurveysEntity> SurveysEntities { get; set; }
     }
 }

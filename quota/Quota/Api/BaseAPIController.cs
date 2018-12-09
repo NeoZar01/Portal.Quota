@@ -33,8 +33,7 @@ namespace DoE.Lsm.Web.Api
         /// 
         /// </summary>
         public virtual int EmisCode
-        {
-            get
+        {   get
             { return User.Identity.GetUserName().ToInt(); }
         }
 

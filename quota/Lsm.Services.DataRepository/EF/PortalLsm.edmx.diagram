@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8f5b43548cfa4979820451668df16dfc" Name="Diagram1" ZoomLevel="86">
+      <Diagram DiagramId="8f5b43548cfa4979820451668df16dfc" Name="Diagram1" ZoomLevel="64">
         <EntityTypeShape EntityType="Portal.LsmModel.Author" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="false" />
         <EntityTypeShape EntityType="Portal.LsmModel.Bookmark" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="false" />
         <EntityTypeShape EntityType="Portal.LsmModel.BusinessRule" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="false" />
@@ -13,16 +13,18 @@
         <EntityTypeShape EntityType="Portal.LsmModel.InventoryRequest" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="false" />
         <EntityTypeShape EntityType="Portal.LsmModel.Publisher" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="false" />
         <EntityTypeShape EntityType="Portal.LsmModel.ReqStatu" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="false" />
-        <EntityTypeShape EntityType="Portal.LsmModel.Requisition" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="false" />
         <EntityTypeShape EntityType="Portal.LsmModel.RequisitionsNorm" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="false" />
         <EntityTypeShape EntityType="Portal.LsmModel.School" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="false" />
-        <EntityTypeShape EntityType="Portal.LsmModel.req_vwOrderItems" Width="1.5" PointX="0.75" PointY="7.75" />
-        <EntityTypeShape EntityType="Portal.LsmModel.vw_Requisition_TotalPrice" Width="1.5" PointX="9.75" PointY="2.75" />
-        <EntityTypeShape EntityType="Portal.LsmModel.vw_RequisitionOrderItems" Width="1.5" PointX="2.75" PointY="9.75" />
-        <EntityTypeShape EntityType="Portal.LsmModel.vw_RequisitionsDashboard" Width="1.5" PointX="4.75" PointY="9.75" />
-        <EntityTypeShape EntityType="Portal.LsmModel.vw_RequisitionsNorms" Width="1.5" PointX="9.75" PointY="5.75" />
-        <EntityTypeShape EntityType="Portal.LsmModel.vw_ShoppingCardItems" Width="1.5" PointX="6.75" PointY="9.75" />
-        <EntityTypeShape EntityType="Portal.LsmModel.vwTotalSubcityPerCircuit" Width="1.5" PointX="8.75" PointY="10.75" />
+        <EntityTypeShape EntityType="Portal.LsmModel.req_vwOrderItems" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="Portal.LsmModel.vw_Requisition_TotalPrice" Width="1.5" PointX="9.75" PointY="2.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="Portal.LsmModel.vw_RequisitionOrderItems" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="Portal.LsmModel.vw_RequisitionsDashboard" Width="1.5" PointX="4.75" PointY="9.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="Portal.LsmModel.vw_RequisitionsNorms" Width="1.5" PointX="9.75" PointY="5.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="Portal.LsmModel.vw_ShoppingCardItems" Width="1.5" PointX="6.75" PointY="9.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="Portal.LsmModel.vwTotalSubcityPerCircuit" Width="1.5" PointX="8.75" PointY="10.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="Portal.LsmModel.Requisition" Width="1.5" PointX="11.375" PointY="10.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="Portal.LsmModel.InterfaceSurvey" Width="1.5" PointX="6" PointY="10.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="Portal.LsmModel.SurveysEntity" Width="1.5" PointX="9.375" PointY="7.75" IsExpanded="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

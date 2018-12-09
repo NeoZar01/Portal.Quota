@@ -131,24 +131,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Requisitions">
-      <EntityTypeMapping TypeName="Portal.LsmModel.Requisition">
-        <MappingFragment StoreEntitySet="Requisition">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="InstanceId" ColumnName="InstanceId" />
-          <ScalarProperty Name="ReqNO" ColumnName="ReqNO" />
-          <ScalarProperty Name="EmisToken" ColumnName="EmisToken" />
-          <ScalarProperty Name="Calendar" ColumnName="Calendar" />
-          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
-          <ScalarProperty Name="GrFrom" ColumnName="GrFrom" />
-          <ScalarProperty Name="GrTo" ColumnName="GrTo" />
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
-          <ScalarProperty Name="WINumber" ColumnName="WINumber" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="RequisitionsNorms">
       <EntityTypeMapping TypeName="Portal.LsmModel.RequisitionsNorm">
         <MappingFragment StoreEntitySet="RequisitionsNorms">
@@ -347,6 +329,57 @@
           <ScalarProperty Name="Schools" ColumnName="Schools" />
           <ScalarProperty Name="EICircuit" ColumnName="EICircuit" />
           <ScalarProperty Name="CircuitCD" ColumnName="CircuitCD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Requisitions">
+      <EntityTypeMapping TypeName="Portal.LsmModel.Requisition">
+        <MappingFragment StoreEntitySet="Requisition">
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="SurveyKey" ColumnName="SurveyKey" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="GrTo" ColumnName="GrTo" />
+          <ScalarProperty Name="GrFrom" ColumnName="GrFrom" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Calendar" ColumnName="Calendar" />
+          <ScalarProperty Name="EmisKey" ColumnName="EmisKey" />
+          <ScalarProperty Name="ReqNO" ColumnName="ReqNO" />
+          <ScalarProperty Name="ProcessCaseToken" ColumnName="ProcessCaseToken" />
+          <ScalarProperty Name="InstanceId" ColumnName="InstanceId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InterfaceSurveys">
+      <EntityTypeMapping TypeName="Portal.LsmModel.InterfaceSurvey">
+        <MappingFragment StoreEntitySet="InterfaceSurveys">
+          <ScalarProperty Name="IsEffective" ColumnName="IsEffective" />
+          <ScalarProperty Name="Data_005" ColumnName="Data_005" />
+          <ScalarProperty Name="Data_004" ColumnName="Data_004" />
+          <ScalarProperty Name="Data_003" ColumnName="Data_003" />
+          <ScalarProperty Name="Data_002" ColumnName="Data_002" />
+          <ScalarProperty Name="Data_001" ColumnName="Data_001" />
+          <ScalarProperty Name="Curator" ColumnName="Curator" />
+          <ScalarProperty Name="Label" ColumnName="Label" />
+          <ScalarProperty Name="ExpiresOn" ColumnName="ExpiresOn" />
+          <ScalarProperty Name="EffectiveFrom" ColumnName="EffectiveFrom" />
+          <ScalarProperty Name="AffectedEntities" ColumnName="AffectedEntities" />
+          <ScalarProperty Name="EntityType" ColumnName="EntityType" />
+          <ScalarProperty Name="SurveyKey" ColumnName="SurveyKey" />
+          <ScalarProperty Name="InterfaceKey" ColumnName="InterfaceKey" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurveysEntities">
+      <EntityTypeMapping TypeName="Portal.LsmModel.SurveysEntity">
+        <MappingFragment StoreEntitySet="SurveysEntities">
+          <ScalarProperty Name="InstalledOn" ColumnName="InstalledOn" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+          <ScalarProperty Name="InterfaceSurveyId" ColumnName="InterfaceSurveyId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

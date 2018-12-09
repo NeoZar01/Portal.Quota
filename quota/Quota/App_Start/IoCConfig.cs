@@ -5,6 +5,7 @@ namespace DoE.Lsm.Web
     using Api;
     using Controllers;
     using Microsoft.Practices.Unity;
+    using Areas.Requisitions.Controllers;
     using Services.Caller.IoC;
 
     /// <summary>
@@ -29,10 +30,10 @@ namespace DoE.Lsm.Web
         /// <param name="container"></param>
         public static void Register(IUnityContainer container)
         {
-            ServicesSchemaContainer<IUnityContainer>.Package(container);
+            ServicesContainer<IUnityContainer>.Package(container);
             container.RegisterType<BaseController>();
             container.RegisterType<HomeController>();
-            //container.RegisterType<CaptureController>();
+            container.RegisterType<CaptureRequisitionsController>();
         }
 
         /// <summary>

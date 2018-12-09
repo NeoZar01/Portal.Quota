@@ -5,6 +5,36 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Portal.LsmModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="InterfaceSurveys">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="InterfaceKey" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="SurveyKey" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="EntityType" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="AffectedEntities" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="EffectiveFrom" Type="datetime" Nullable="false" />
+          <Property Name="ExpiresOn" Type="datetime" Nullable="false" />
+          <Property Name="Label" Type="varchar" MaxLength="144" />
+          <Property Name="Curator" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Data_001" Type="varchar" MaxLength="255" />
+          <Property Name="Data_002" Type="varchar" MaxLength="255" />
+          <Property Name="Data_003" Type="varchar" MaxLength="255" />
+          <Property Name="Data_004" Type="varchar" MaxLength="255" />
+          <Property Name="Data_005" Type="varchar" MaxLength="255" />
+          <Property Name="IsEffective" Type="bit" />
+        </EntityType>
+        <EntityType Name="SurveysEntities">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="InterfaceSurveyId" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="EntityId" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="InstalledOn" Type="datetime" />
+        </EntityType>
         <EntityType Name="Schools">
           <Key>
             <PropertyRef Name="Id" />
@@ -169,16 +199,17 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="InstanceId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProcessCaseToken" Type="varchar" MaxLength="124" />
           <Property Name="ReqNO" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="EmisToken" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="EmisKey" Type="nvarchar" MaxLength="36" Nullable="false" />
           <Property Name="Calendar" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" />
           <Property Name="LastModifiedDate" Type="datetime" />
           <Property Name="GrFrom" Type="tinyint" />
           <Property Name="GrTo" Type="tinyint" />
-          <Property Name="State" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="SurveyKey" Type="varchar" MaxLength="16" Nullable="false" />
           <Property Name="TotalPrice" Type="money" StoreGeneratedPattern="Computed" />
-          <Property Name="WINumber" Type="varchar" MaxLength="64" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Portal.Lsm.Production.RequisitionsNorms' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -433,6 +464,8 @@ warning 6002: The table/view 'Portal.Lsm.Production.vwTotalSubcityPerCircuit' do
           <Property Name="BookYear" Type="nvarchar" MaxLength="9" Nullable="false" />
         </EntityType>
         <EntityContainer Name="PortalLsmModelStoreContainer">
+          <EntitySet Name="InterfaceSurveys" EntityType="Self.InterfaceSurveys" Schema="DataExtract" store:Type="Tables" />
+          <EntitySet Name="SurveysEntities" EntityType="Self.SurveysEntities" Schema="DataExtract" store:Type="Tables" />
           <EntitySet Name="Schools" EntityType="Self.Schools" Schema="MasterFile" store:Type="Tables" />
           <EntitySet Name="Authors" EntityType="Self.Authors" Schema="Production" store:Type="Tables" />
           <EntitySet Name="Bookmarks" EntityType="Self.Bookmarks" Schema="Production" store:Type="Tables" />
@@ -727,25 +760,6 @@ warning 6002: The table/view 'Portal.Lsm.Production.vwTotalSubcityPerCircuit' do
           <Property Name="Editable" Type="Boolean" Nullable="false" />
           <Property Name="Recallable" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityType Name="Requisition">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="InstanceId" />
-            <PropertyRef Name="ReqNO" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="InstanceId" Type="Guid" Nullable="false" />
-          <Property Name="ReqNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="EmisToken" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Calendar" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Precision="3" />
-          <Property Name="LastModifiedDate" Type="DateTime" Precision="3" />
-          <Property Name="GrFrom" Type="Byte" />
-          <Property Name="GrTo" Type="Byte" />
-          <Property Name="State" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TotalPrice" Type="Decimal" Precision="19" Scale="4" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="WINumber" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="RequisitionsNorm">
           <Key>
             <PropertyRef Name="Id" />
@@ -781,7 +795,6 @@ warning 6002: The table/view 'Portal.Lsm.Production.vwTotalSubcityPerCircuit' do
           <EntitySet Name="InventoryRequests" EntityType="Self.InventoryRequest" />
           <EntitySet Name="Publishers" EntityType="Self.Publisher" />
           <EntitySet Name="ReqStatus" EntityType="Self.ReqStatu" />
-          <EntitySet Name="Requisitions" EntityType="Self.Requisition" />
           <EntitySet Name="RequisitionsNorms" EntityType="Self.RequisitionsNorm" />
           <EntitySet Name="Schools" EntityType="Portal.LsmModel.School" />
           <EntitySet Name="req_vwOrderItems" EntityType="Portal.LsmModel.req_vwOrderItems" />
@@ -791,6 +804,9 @@ warning 6002: The table/view 'Portal.Lsm.Production.vwTotalSubcityPerCircuit' do
           <EntitySet Name="vw_RequisitionsNorms" EntityType="Portal.LsmModel.vw_RequisitionsNorms" />
           <EntitySet Name="vw_ShoppingCardItems" EntityType="Portal.LsmModel.vw_ShoppingCardItems" />
           <EntitySet Name="vwTotalSubcityPerCircuits" EntityType="Portal.LsmModel.vwTotalSubcityPerCircuit" />
+          <EntitySet Name="Requisitions" EntityType="Portal.LsmModel.Requisition" />
+          <EntitySet Name="InterfaceSurveys" EntityType="Portal.LsmModel.InterfaceSurvey" />
+          <EntitySet Name="SurveysEntities" EntityType="Portal.LsmModel.SurveysEntity" />
         </EntityContainer>
         <EntityType Name="School">
           <Key>
@@ -1033,6 +1049,56 @@ warning 6002: The table/view 'Portal.Lsm.Production.vwTotalSubcityPerCircuit' do
           <Property Name="TotalPrice" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="BookYear" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Requisition">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="InstanceId" />
+            <PropertyRef Name="ReqNO" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InstanceId" Type="Guid" Nullable="false" />
+          <Property Name="ProcessCaseToken" Type="String" MaxLength="124" FixedLength="false" Unicode="false" />
+          <Property Name="ReqNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmisKey" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="Calendar" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="LastModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="GrFrom" Type="Byte" />
+          <Property Name="GrTo" Type="Byte" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SurveyKey" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="TotalPrice" Type="Decimal" Precision="19" Scale="4" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="InterfaceSurvey">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="InterfaceKey" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="SurveyKey" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="EntityType" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="AffectedEntities" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExpiresOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Label" Type="String" MaxLength="144" FixedLength="false" Unicode="false" />
+          <Property Name="Curator" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Data_001" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Data_002" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Data_003" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Data_004" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Data_005" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IsEffective" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="SurveysEntity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="InterfaceSurveyId" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="EntityId" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="InstalledOn" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1166,24 +1232,6 @@ warning 6002: The table/view 'Portal.Lsm.Production.vwTotalSubcityPerCircuit' do
                 <ScalarProperty Name="StatusDescription" ColumnName="StatusDescription" />
                 <ScalarProperty Name="Editable" ColumnName="Editable" />
                 <ScalarProperty Name="Recallable" ColumnName="Recallable" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Requisitions">
-            <EntityTypeMapping TypeName="Portal.LsmModel.Requisition">
-              <MappingFragment StoreEntitySet="Requisition">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="InstanceId" ColumnName="InstanceId" />
-                <ScalarProperty Name="ReqNO" ColumnName="ReqNO" />
-                <ScalarProperty Name="EmisToken" ColumnName="EmisToken" />
-                <ScalarProperty Name="Calendar" ColumnName="Calendar" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
-                <ScalarProperty Name="GrFrom" ColumnName="GrFrom" />
-                <ScalarProperty Name="GrTo" ColumnName="GrTo" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
-                <ScalarProperty Name="WINumber" ColumnName="WINumber" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1385,6 +1433,57 @@ warning 6002: The table/view 'Portal.Lsm.Production.vwTotalSubcityPerCircuit' do
                 <ScalarProperty Name="Schools" ColumnName="Schools" />
                 <ScalarProperty Name="EICircuit" ColumnName="EICircuit" />
                 <ScalarProperty Name="CircuitCD" ColumnName="CircuitCD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Requisitions">
+            <EntityTypeMapping TypeName="Portal.LsmModel.Requisition">
+              <MappingFragment StoreEntitySet="Requisition">
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="SurveyKey" ColumnName="SurveyKey" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="GrTo" ColumnName="GrTo" />
+                <ScalarProperty Name="GrFrom" ColumnName="GrFrom" />
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Calendar" ColumnName="Calendar" />
+                <ScalarProperty Name="EmisKey" ColumnName="EmisKey" />
+                <ScalarProperty Name="ReqNO" ColumnName="ReqNO" />
+                <ScalarProperty Name="ProcessCaseToken" ColumnName="ProcessCaseToken" />
+                <ScalarProperty Name="InstanceId" ColumnName="InstanceId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InterfaceSurveys">
+            <EntityTypeMapping TypeName="Portal.LsmModel.InterfaceSurvey">
+              <MappingFragment StoreEntitySet="InterfaceSurveys">
+                <ScalarProperty Name="IsEffective" ColumnName="IsEffective" />
+                <ScalarProperty Name="Data_005" ColumnName="Data_005" />
+                <ScalarProperty Name="Data_004" ColumnName="Data_004" />
+                <ScalarProperty Name="Data_003" ColumnName="Data_003" />
+                <ScalarProperty Name="Data_002" ColumnName="Data_002" />
+                <ScalarProperty Name="Data_001" ColumnName="Data_001" />
+                <ScalarProperty Name="Curator" ColumnName="Curator" />
+                <ScalarProperty Name="Label" ColumnName="Label" />
+                <ScalarProperty Name="ExpiresOn" ColumnName="ExpiresOn" />
+                <ScalarProperty Name="EffectiveFrom" ColumnName="EffectiveFrom" />
+                <ScalarProperty Name="AffectedEntities" ColumnName="AffectedEntities" />
+                <ScalarProperty Name="EntityType" ColumnName="EntityType" />
+                <ScalarProperty Name="SurveyKey" ColumnName="SurveyKey" />
+                <ScalarProperty Name="InterfaceKey" ColumnName="InterfaceKey" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SurveysEntities">
+            <EntityTypeMapping TypeName="Portal.LsmModel.SurveysEntity">
+              <MappingFragment StoreEntitySet="SurveysEntities">
+                <ScalarProperty Name="InstalledOn" ColumnName="InstalledOn" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+                <ScalarProperty Name="InterfaceSurveyId" ColumnName="InterfaceSurveyId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

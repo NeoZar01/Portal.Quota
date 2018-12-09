@@ -71,10 +71,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\ServicesSchemaContainer.cs" />
-    <Compile Include="Api\ISchemaRegistry.cs" />
+    <Compile Include="App_Start\ServicesContainer.cs" />
+    <Compile Include="Api\IServicesContainerManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Api\Schema.cs" />
+    <Compile Include="Api\ServicesContainerManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -86,13 +86,21 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Lsm.Services.DataRepository\Lsm.Services.DataRepository.csproj">
-      <Project>{7e8c0842-0fe6-47de-8f70-a9533a7c5c09}</Project>
-      <Name>Lsm.Services.DataRepository</Name>
+    <ProjectReference Include="..\Lsm.Services.Component.Requisitions.Validations\Lsm.Services.Component.Requisitions.Validations.csproj">
+      <Project>{c185039a-79ae-47ff-bcb5-419fff9579a4}</Project>
+      <Name>Lsm.Services.Component.Requisitions.Validations</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Lsm.Services.ShoppingCard\Lsm.Services.ShoppingCard.csproj">
+    <ProjectReference Include="..\Lsm.Services.DataRepository\Lsm.Services.Data.Repository.csproj">
+      <Project>{7e8c0842-0fe6-47de-8f70-a9533a7c5c09}</Project>
+      <Name>Lsm.Services.Data.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lsm.Services.ShoppingCard\Lsm.Services.ShoppingCart.Repository.csproj">
       <Project>{78e704d4-b1bf-4189-88ea-1a54e5ba15e7}</Project>
-      <Name>Lsm.Services.ShoppingCard</Name>
+      <Name>Lsm.Services.ShoppingCart.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Requisitions\Lsm.Services.Component.Requisitions.csproj">
+      <Project>{5c5efee3-0e9e-45d3-a0ce-3b87ab7057e9}</Project>
+      <Name>Lsm.Services.Component.Requisitions</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
