@@ -1,21 +1,22 @@
 ﻿using System;
 using System.Web;
 using System.Linq;
+using System.Threading.Tasks;
+
 using System.Security.Claims;
 using System.Security.Principal;
-using System.Threading.Tasks;
+
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 
 namespace DoE.Lsm.Web.Api
 {
-    using Annotations;
     using Quota;
+    using Annotations;
 
     /// <summary>
-    ///  <para> Creates extension methods for the default Identity framework.</para>    
-    /// 
+    ///  Amends extension methods for the Identity 2.0 library
     ///  <see cref="Microsoft.AspNet.Identity"/>
     /// </summary>
     public static class IdentityExtensions
@@ -26,7 +27,6 @@ namespace DoE.Lsm.Web.Api
         /// </summary>
         /// <see cref="IIdentity"/>
         /// <param name="identity"></param>
-        /// <returns></returns>
         public static string GetFirstName(this IIdentity identity)
         {
             var claim = ((ClaimsIdentity)identity).FindFirst("FirstName");
@@ -39,7 +39,6 @@ namespace DoE.Lsm.Web.Api
         /// </summary>
         ///  <see cref="IIdentity"/>
         /// <param name="identity"></param>
-        /// <returns></returns>
         public static string GetSurname(this IIdentity identity)
         {
             var claim = ((ClaimsIdentity)identity).FindFirst("Surname");
@@ -48,11 +47,10 @@ namespace DoE.Lsm.Web.Api
         }
 
         /// <summary>
-        ///     Gets maiden name
+        ///     Gets cononical name
         /// </summary>
         ///  <see cref="IIdentity"/>
         /// <param name="identity"></param>
-        /// <returns></returns>
         public static string GetName(this IIdentity identity)
         {
             var claim = ((ClaimsIdentity)identity).FindFirst("Name");
@@ -102,23 +100,17 @@ namespace DoE.Lsm.Web.Api
         }
 
         /// <summary>
-        ///     Get Global Identity Token from the Profile Store
+        ///     Get Person Id.
         /// </summary>
         /// <param name="identity"></param>
         /// <returns></returns>
-        public static string GetToken(this IIdentity identity)
+        public static string PersonId(this IIdentity identity)
         {
             var claim = ((ClaimsIdentity)identity).FindFirst("Token");
 
             return (claim != null) ? string.IsNullOrEmpty(claim.Value) ? " " : claim.Value : " ";
         }
 
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="principal"></param>
-        /// <returns></returns>
         public static string GetImpersonator(this IPrincipal principal)
         {
             var claimsPrincipal = principal as ClaimsPrincipal;
@@ -142,7 +134,7 @@ namespace DoE.Lsm.Web.Api
         }
 
         /// <summary>
-        ///       Allow administrator to impersonate users.
+        ///       Allow administrator to impersonate users using Identity extension methods
         /// </summary>
         /// <param name="signInManager"></param>
         /// <param name="impersonator"></param>

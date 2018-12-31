@@ -39,10 +39,10 @@ namespace DoE.Lsm.Web.Controllers
         [HttpGet]
         public async Task<ActionResult> Index()
         {
-            if (string.IsNullOrEmpty(User.Identity.GetRole()) && string.IsNullOrEmpty(User.Identity.GetToken()))
+            if (string.IsNullOrEmpty(User.Identity.GetRole()) && string.IsNullOrEmpty(User.Identity.PersonId()))
                 return View();
 
-            return View(await _entityDashBoard[User.Identity.GetRole()].ReturnModel(_repositoriesDataStore , _validationContainer , null, User.Identity.GetToken()));
+            return View(await _entityDashBoard[User.Identity.GetRole()].ReturnModel(_repositoryStore , _validationContainer , null, PersonId));
         }
 
 
@@ -55,7 +55,7 @@ namespace DoE.Lsm.Web.Controllers
         [ChildActionOnly]
         public ActionResult BuildDashboard(DashboardFactoryViewModel model)
         {
-            return PartialView(model.Page.IsNullReplaceWith("_mainpagedashboard_error"), model);
+            return PartialView(model.Page.IsNull("_mainpagedashboard_error"), model);
         }
     }
 }

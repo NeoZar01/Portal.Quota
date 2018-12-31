@@ -9,12 +9,12 @@ namespace DoE.Lsm.Web.Api
     /// <summary>
     /// 
     /// </summary>
-    public class DependancyInjection : IDependencyResolver
+    public class ServicesBroker : IDependencyResolver
     {
 
         private readonly IUnityContainer _container;
 
-        public DependancyInjection(IUnityContainer container)
+        public ServicesBroker(IUnityContainer container)
         {
             this._container = container;
         }

@@ -16,7 +16,7 @@ namespace DoE.Lsm.Data.Repository.Norms
         /// <param name="emisId"></param>
         /// <param name="bookYear"></param>
         /// <returns></returns>
-        string GetNorm(string label, string bookYear);
+        string GetNorm(string normGroup, string label, string bookYear);
 
         /// <summary>
         /// 
@@ -31,7 +31,7 @@ namespace DoE.Lsm.Data.Repository.Norms
         /// <summary>
         /// 
         /// </summary>
-        string SurveyEntitiesInstallationKey { get; }
+        string SurveyCD { get; }
 
         /// <summary>
         /// 

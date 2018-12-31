@@ -6,9 +6,7 @@ namespace DoE.Lsm.Web.Api.Filters
 {
 
     /// <summary>
-    ///      Assists in clearning cache for the current session.
-    ///      <para>To avoid users from visisting pages with current depositored session data after log-out.</para>
-    ///      <para>This will also need to be used for clearing cache when administators kills current running sessions.</para>
+    ///      Clears session cache after logging off
     /// </summary>
     public class ClearCache : ActionFilterAttribute, IActionFilter
     {

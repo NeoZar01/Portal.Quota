@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lsm.Services.ShoppingCart.Repository", "Lsm.Services.ShoppingCard\Lsm.Services.ShoppingCart.Repository.csproj", "{78E704D4-B1BF-4189-88EA-1A54E5BA15E7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lsm.Services.ShoppingCard.Repository", "Lsm.Services.ShoppingCard\Lsm.Services.ShoppingCard.Repository.csproj", "{78E704D4-B1BF-4189-88EA-1A54E5BA15E7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lsm.Services.Container", "Lsm.Services.Container\Lsm.Services.Container.csproj", "{B5556090-2CF0-4731-ACF9-595E887EEDE6}"
 EndProject

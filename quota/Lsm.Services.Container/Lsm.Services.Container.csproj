@@ -94,9 +94,9 @@
       <Project>{7e8c0842-0fe6-47de-8f70-a9533a7c5c09}</Project>
       <Name>Lsm.Services.Data.Repository</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Lsm.Services.ShoppingCard\Lsm.Services.ShoppingCart.Repository.csproj">
+    <ProjectReference Include="..\Lsm.Services.ShoppingCard\Lsm.Services.ShoppingCard.Repository.csproj">
       <Project>{78e704d4-b1bf-4189-88ea-1a54e5ba15e7}</Project>
-      <Name>Lsm.Services.ShoppingCart.Repository</Name>
+      <Name>Lsm.Services.ShoppingCard.Repository</Name>
     </ProjectReference>
     <ProjectReference Include="..\Requisitions\Lsm.Services.Component.Requisitions.csproj">
       <Project>{5c5efee3-0e9e-45d3-a0ce-3b87ab7057e9}</Project>

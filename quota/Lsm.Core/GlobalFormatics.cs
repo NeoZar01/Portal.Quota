@@ -19,8 +19,8 @@ namespace Lsm.Core.Global
 
         public static int RemainingDays(DateTime firstDate, DateTime secondDate)
         {
-            if (firstDate == null) throw new ArgumentNullException("firstDate");
-            if (secondDate == null) throw new ArgumentNullException("secondDate");
+            if (firstDate == null)   throw new ArgumentNullException("firstDate");
+            if (secondDate == null)  throw new ArgumentNullException("secondDate");
 
             try
             {

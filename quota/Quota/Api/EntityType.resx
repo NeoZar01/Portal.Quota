@@ -119,11 +119,14 @@
   </resheader>
   <data name="Administrator" xml:space="preserve">
     <value>ADMINISTRATOR</value>
+    <comment>Responsible for the technical administrations of the system.</comment>
   </data>
   <data name="CircuitManager" xml:space="preserve">
     <value>CIRCUIT_MANAGER</value>
+    <comment>Monitors and Manages requisitions thrown to their baskets.</comment>
   </data>
   <data name="School" xml:space="preserve">
     <value>SCHOOL</value>
+    <comment>Captures requisitions and request approvals.</comment>
   </data>
 </root>

@@ -35,7 +35,7 @@ namespace DoE.Lsm.Web.Models
             string output = "";
             var xprDate = repositoryManager.SnE.ExpiresOn;
 
-            requisitionsValidationRule.ActionRequisitionsValidationWorker(callback, xprDate,  repositoryManager.SnE.SurveyEntitiesInstallationKey , identityId,  out output);
+            requisitionsValidationRule.ActionRequisitionsValidationWorker(callback, xprDate,  repositoryManager.SnE.SurveyCD , identityId,  out output);
 
             return await Task.FromResult(new SchoolDashboardViewModel
             {

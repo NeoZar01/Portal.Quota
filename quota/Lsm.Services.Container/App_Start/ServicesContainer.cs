@@ -25,7 +25,7 @@ namespace DoE.Lsm.Services.Caller.IoC
                 .RegisterType<ILogger, BaseLogger>()
                 .RegisterType<IRepositoryStoreManager, RepositoryStoreManager>()
                 .RegisterType<IValidationCallbackContainer, ValidationCallbackContainer>()
-                .RegisterType<INorms, Norms>()
+                .RegisterType<ISurveyInterfaceEntries, SurveyInterfaceEntries>()
                 .RegisterType<IShoppingCartRepository,   ShoppingCartRepository>()
                 .RegisterType<IServicesContainerManager, ServicesContainerManager>();
         }

@@ -27,10 +27,7 @@ namespace DoE.Lsm.Data.Repositories.Norms
             }
         }
 
-        public string GetNorm(string label, string bookYear)
-        {
-            return "21";
-        }
+
 
         public DateTime ExpiresOn
         {
@@ -62,7 +59,12 @@ namespace DoE.Lsm.Data.Repositories.Norms
 
         }
 
-        public string SurveyEntitiesInstallationKey
+        public string GetNorm(string normGroup, string label, string bookYear)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string SurveyCD
         {
             get
             {

@@ -251,10 +251,10 @@ C:\Users\Falcorp\Source\repos\Portal.Quota\quota\Quota\bin\DoE.Lsm.WF.Engine.Con
 C:\Users\Falcorp\Source\repos\Portal.Quota\quota\Quota\bin\PagedList.xml
 C:\Users\Falcorp\Source\repos\Portal.Quota\quota\Quota\obj\Debug\Lsm.Web.csprojResolveAssemblyReference.cache
 C:\Users\Falcorp\Source\repos\Portal.Quota\quota\Quota\obj\Debug\DoE.Lsm.Web.Api.EntityType.resources
-C:\Users\Falcorp\Source\repos\Portal.Quota\quota\Quota\obj\Debug\DoE.Lsm.Web.Api.Resources.resources
 C:\Users\Falcorp\Source\repos\Portal.Quota\quota\Quota\obj\Debug\Lsm.Web.csproj.GenerateResource.Cache
 C:\Users\Falcorp\Source\repos\Portal.Quota\quota\Quota\obj\Debug\PostSharp\touch
 C:\Users\Falcorp\Source\repos\Portal.Quota\quota\Quota\obj\Debug\PostSharp\dependencies.txt
 C:\Users\Falcorp\Source\repos\Portal.Quota\quota\Quota\obj\Debug\Quota.dll
 C:\Users\Falcorp\Source\repos\Portal.Quota\quota\Quota\obj\Debug\Quota.pdb
 C:\Users\Falcorp\Source\repos\Portal.Quota\quota\Quota\obj\Debug\PostSharp\postsharp.app.config
+C:\Users\Falcorp\Source\repos\Portal.Quota\quota\Quota\obj\Debug\DoE.Lsm.Web.Views.Shared.Resources.resources

@@ -1,22 +1,22 @@
 ﻿using System.Web.Mvc;
 
-namespace DoE.Lsm.Web.Areas.RestAPI
+namespace DoE.Lsm.Web.Areas.Services
 {
-    public class RestAPIAreaRegistration : AreaRegistration 
+    public class ServicesAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
         {
             get 
             {
-                return "RestAPI";
+                return "Services";
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "RestAPI_default",
-                "RestAPI/{controller}/{action}/{id}",
+                "Services_default",
+                "Services/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }

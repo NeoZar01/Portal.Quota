@@ -17,7 +17,7 @@ namespace DoE.Lsm.Web
     {
         protected void Application_Start()
         {
-            DependencyResolver.SetResolver(new DependancyInjection(IoCConfig.LoadContainer()));
+            DependencyResolver.SetResolver(new ServicesBroker(IoCConfig.LoadContainer()));
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

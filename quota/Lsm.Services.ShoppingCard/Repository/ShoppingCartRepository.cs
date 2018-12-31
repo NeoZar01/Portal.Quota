@@ -22,10 +22,10 @@ namespace DoE.Lsm.ShoppingCart
         protected readonly IRepositoryStoreManager       _repositoryManager;
         protected readonly IValidationCallbackContainer  _validationCallbacksContainer;
         private readonly TeacherGuideValidationRule teacherGuideValidation;
-        protected readonly INorms _norms;
+        protected readonly ISurveyInterfaceEntries _norms;
 
 
-        public ShoppingCartRepository(IRepositoryStoreManager repositoryManager, IValidationCallbackContainer validationCallbacksContainer, INorms nrms )
+        public ShoppingCartRepository(IRepositoryStoreManager repositoryManager, IValidationCallbackContainer validationCallbacksContainer, ISurveyInterfaceEntries nrms )
         {
             this._repositoryManager            = repositoryManager;
             this.bookYear                      = repositoryManager.SnE.BookYear;

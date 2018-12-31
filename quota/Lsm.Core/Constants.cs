@@ -14,14 +14,11 @@ namespace DoE.Lsm.Core.Constants
         LessThan
     }
 
+
     public enum VettingOutcome : int
     {
         Passed = 1,
         Failed = 0
     }    
-
-
-
-
 
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lsm.Services.Component.Requisitions.Api
 {
-    public interface INorms
+    public interface ISurveyInterfaceEntries
     {
 
         /// <summary>
@@ -33,6 +33,16 @@ namespace Lsm.Services.Component.Requisitions.Api
         /// 
         /// </summary>
         /// <param name="bookYear"></param>
-        void LoadNorms(string bookYear);
+        void LoadStandardsAndNorms(string bookYear);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        string SurveyId { get;}
+
+        /// <summary>
+        /// 
+        /// </summary>
+        string ConsortiumGroupId { get; }
     }
 }

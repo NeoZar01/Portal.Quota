@@ -47,11 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\INorms.cs" />
+    <Compile Include="Api\ISurveyInterfaceEntries.cs" />
     <Compile Include="Core\IUtilCallbacksContainer.cs" />
     <Compile Include="Core\Utils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Norms.cs" />
+    <Compile Include="Services\SurveyInterfaceEntries.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

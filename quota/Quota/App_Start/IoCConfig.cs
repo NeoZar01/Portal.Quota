@@ -26,6 +26,7 @@ namespace DoE.Lsm.Web
 
         /// <summary>
         ///      Add dependant containers
+        ///      Add dependancies
         /// </summary>
         /// <param name="container"></param>
         public static void Register(IUnityContainer container)
