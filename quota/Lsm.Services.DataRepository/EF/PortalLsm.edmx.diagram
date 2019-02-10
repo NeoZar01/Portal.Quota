@@ -23,7 +23,6 @@
         <EntityTypeShape EntityType="Portal.LsmModel.vw_ShoppingCardItems" Width="1.5" PointX="6.75" PointY="9.75" IsExpanded="false" />
         <EntityTypeShape EntityType="Portal.LsmModel.vwTotalSubcityPerCircuit" Width="1.5" PointX="8.75" PointY="10.75" IsExpanded="false" />
         <EntityTypeShape EntityType="Portal.LsmModel.Requisition" Width="1.5" PointX="11.375" PointY="10.75" IsExpanded="false" />
-        <EntityTypeShape EntityType="Portal.LsmModel.InterfaceSurvey" Width="1.5" PointX="6" PointY="10.625" IsExpanded="false" />
         <EntityTypeShape EntityType="Portal.LsmModel.SurveysEntity" Width="1.5" PointX="9.375" PointY="7.75" IsExpanded="false" />
       </Diagram>
     </edmx:Diagrams>

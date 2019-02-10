@@ -1,9 +1,6 @@
-﻿using System;
+﻿using System.Web.Mvc;
+using System.Threading.Tasks;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
 
 namespace DoE.Lsm.Web.Controllers
 {
@@ -11,38 +8,35 @@ namespace DoE.Lsm.Web.Controllers
     using Api;
     using Logger;
     using Data.Repositories;
-    using System.Threading.Tasks;
-    using ShoppingCart.Api;
-    using ShoppingCart.Norms.Validations.Api;
+
+    using Services.Validations.Api;
+    using Services.Web.Session.Cache;
+    using Repository.Services.Local.Api;
+    using Lsm.Services.Identity.Claims.GroupPolicy.Resources;
 
     [Authorize]
     public class HomeController : BaseController
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        private readonly Dictionary<string, DashboardFactoryViewModel> _entityDashBoard = new Dictionary<string, DashboardFactoryViewModel>();
 
-        public HomeController(ILogger logger, IRepositoryStoreManager dataStore, IShoppingCartRepository shoppingCart, IValidationCallbackContainer validationContainer)  : base(logger, dataStore, shoppingCart, validationContainer)
+        private readonly Dictionary<string, HomePageBuilder> modelDictionary = new Dictionary<string, HomePageBuilder>();
+
+        public HomeController(ILogger log, IUnitOfWork uow, IShoppingCartService shoppingCart, IValidationCallbackProvider validationCallback, IGlobalCache cache)  
+            : base(log, uow, shoppingCart, validationCallback, cache)
         {
-            _entityDashBoard.Add(EntityType.School, new SchoolDashboardViewModel());
-            _entityDashBoard.Add(EntityType.CircuitManager, new CircuitDashboardViewModel());
-            _entityDashBoard.Add(EntityType.Administrator, new AdministratorDashboardViewModel());
+            modelDictionary.Add(ModelKeys.SchoolDashboardViewModel, new SchoolHomePageViewModel(ModelKeys.SchoolDashboardViewModel));
+            modelDictionary.Add(ModelKeys.AdministratorDashboardViewModel, new AdministratorDashboardViewModel(ModelKeys.AdministratorDashboardViewModel));
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="GIT"></param>
-        /// <param name="entityType"></param>
-        /// <returns></returns>
         [HttpGet]
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
-            if (string.IsNullOrEmpty(User.Identity.GetRole()) && string.IsNullOrEmpty(User.Identity.PersonId()))
-                return View();
+            var sessionCache = SetupSessionCache();
 
-            return View(await _entityDashBoard[User.Identity.GetRole()].ReturnModel(_repositoryStore , _validationContainer , null, PersonId));
+            if(sessionCache != null)
+            {
+                return View( modelDictionary[sessionCache.IdentityRole].ResolveHypertext<HomePageBuilder>(_uow, _validationCallback, null, sessionCache.IdentityId));
+            }
+                return View();
         }
 
 
@@ -53,7 +47,7 @@ namespace DoE.Lsm.Web.Controllers
         /// <returns></returns>
         [HttpGet]
         [ChildActionOnly]
-        public ActionResult BuildDashboard(DashboardFactoryViewModel model)
+        public ActionResult BuildDashboard(HomePageBuilder model)
         {
             return PartialView(model.Page.IsNull("_mainpagedashboard_error"), model);
         }

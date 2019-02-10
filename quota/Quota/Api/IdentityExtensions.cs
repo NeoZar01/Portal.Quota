@@ -104,7 +104,7 @@ namespace DoE.Lsm.Web.Api
         /// </summary>
         /// <param name="identity"></param>
         /// <returns></returns>
-        public static string PersonId(this IIdentity identity)
+        public static string GetPersonalId(this IIdentity identity)
         {
             var claim = ((ClaimsIdentity)identity).FindFirst("Token");
 

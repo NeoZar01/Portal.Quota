@@ -34,3 +34,5 @@ C:\Users\Falcorp\Source\repos\Portal.Quota\quota\Lsm.Services.ShoppingCard\obj\D
 C:\Users\Falcorp\Source\repos\Portal.Quota\quota\Lsm.Services.ShoppingCard\obj\Debug\Lsm.Services.ShoppingCart.dll
 C:\Users\Falcorp\Source\repos\Portal.Quota\quota\Lsm.Services.ShoppingCard\obj\Debug\Lsm.Services.ShoppingCart.pdb
 C:\Users\Falcorp\Source\repos\Portal.Quota\quota\Lsm.Services.ShoppingCard\obj\Debug\PostSharp\postsharp.app.config
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.ShoppingCard\obj\Debug\Lsm.Services.ShoppingCart.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.ShoppingCard\obj\Debug\Lsm.Services.ShoppingCart.pdb

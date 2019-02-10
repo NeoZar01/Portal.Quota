@@ -1,0 +1,4 @@
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Web.Repository\bin\Debug\Lsm.Services.Web.Repository.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Web.Repository\bin\Debug\Lsm.Services.Web.Repository.pdb
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Web.Repository\obj\Debug\Lsm.Services.Web.Repository.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Web.Repository\obj\Debug\Lsm.Services.Web.Repository.pdb

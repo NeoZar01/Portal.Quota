@@ -33,8 +33,8 @@
 <body class="nav-md">
     <div class="container body">
         <div class="main_container">
-            @Html.Partial("_Breadcrumb")
-            <!-- top navigation -->
+            <!-- top navigation --> 
+                @Html.Partial("_Breadcrumb")
             <div class="top_nav">
                 <div class="nav_menu">
                     <nav>
@@ -42,27 +42,25 @@
                             <a id="menu_toggle"><i class="fa fa-bars"></i></a>
                         </div>
                         <ul class="nav navbar-nav navbar-right">
-                           @Html.Partial("_Apps")
+                            @Html.Partial("_Apps")
                         </ul>
                     </nav>
                 </div>
             </div>
             <!-- /top navigation -->
-            <!-- page content -->
-            <div class="right_col coverphoto " role="main" >
+            <div class="right_col coverphoto " role="main">
                 <br />
                 @RenderBody()
             </div>
-            <!-- /page content -->
-            <!-- footer content -->
+    <!-- page content -->
+    <!-- /page content --> 
             <footer>
                 <div class="text-center">
-                    <span class="text-center"> Copyrighted &copy; 2018 : Quota is a property of Neo Lebese.And therefore no GNU license for redistribution is available.</span><br/>
+                    <span class="text-center"> Copyrighted &copy; 2018 : Quota is a property of Neo Lebese.And therefore no GNU license for redistribution is available.</span><br />
                     <span class="text-center">The modernizer theme is a free theme that was used according to its distribution license. </span>
                 </div>
                 <div class="clearfix"></div>
             </footer>
-            <!-- /footer content -->
         </div>
     </div>
     <!-- jQuery -->

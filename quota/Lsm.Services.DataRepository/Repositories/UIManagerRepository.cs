@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DoE.Lsm.Data.Repositories.UI
+namespace DoE.Lsm.Data.Repositories.Search
 {
-    public class UIManagerRepository : RepositoryFactory<object>, IUIRepository
+    public class SearchRepository : Repository<object>, ISearchRepository
     {
 
-        public UIManagerRepository(DbContext context, ILogger logger) : base(context, logger){ }
+        public SearchRepository(DbContext context, ILogger logger) : base(context, logger){ }
 
         //public IEnumerable<SearchRepository> Run(string keyword, bool IsAuthenticated)
         //{

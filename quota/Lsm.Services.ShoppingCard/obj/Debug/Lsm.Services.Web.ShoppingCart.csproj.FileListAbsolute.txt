@@ -1,0 +1,3 @@
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.ShoppingCard\obj\Debug\Lsm.Services.Web.ShoppingCart.csprojResolveAssemblyReference.cache
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.ShoppingCard\obj\Debug\Lsm.Services.ShoppingCart.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.ShoppingCard\obj\Debug\Lsm.Services.ShoppingCart.pdb

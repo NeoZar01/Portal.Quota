@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lsm.Services.Component.Requisitions.Api
 {
-    public interface ISurveyInterfaceEntries
+    public interface ISurveyRepository
     {
 
         /// <summary>

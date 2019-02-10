@@ -1,4 +1,4 @@
-﻿namespace DoE.Lsm.ShoppingCart.Norms.Validations.Rules
+﻿namespace DoE.Lsm.Web.Services.Validations.Rules
 {
     using Api;
     using Core.Constants;
@@ -20,7 +20,7 @@
 
         public LearnerGuidesValidationCallback LearnerGuideCheck;
 
-        public void ActionLearnerGuideValidationWorker(IValidationCallbackContainer callback, int category, int teacherCount, int quantity, int quota)
+        public void ActionLearnerGuideValidationWorker(IValidationCallbackProvider callback, int category, int teacherCount, int quantity, int quota)
         {
             LearnerGuideCheck = callback.LearnerGuideQuotaValidationCallback;
             output = LearnerGuideCheck(category, teacherCount, quantity , quota);

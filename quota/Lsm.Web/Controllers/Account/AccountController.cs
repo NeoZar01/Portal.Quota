@@ -9,6 +9,8 @@ using Microsoft.Owin.Security;
 
 namespace DoE.Lsm.Web.Controllers
 {
+    using Data.Repositories;
+    using Lsm.Services.Web.Repository.Api;
     using Models;
 
     [Authorize]
@@ -17,12 +19,16 @@ namespace DoE.Lsm.Web.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
+        private ISurveyService _surveyService;
+        private IUnitOfWork     _uow;
+
         public AccountController() { }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
-            UserManager   = userManager;
-            SignInManager = signInManager;
+            UserManager             = userManager;
+            SignInManager           = signInManager;
+            //_surveyService          = surveyService;
         }
 
         //
@@ -51,6 +57,9 @@ namespace DoE.Lsm.Web.Controllers
             switch (status)
             {
                 case SignInStatus.Success:
+
+                   // var survey = _surveyService.GetCurrentSurvey(model.UserName);
+
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");

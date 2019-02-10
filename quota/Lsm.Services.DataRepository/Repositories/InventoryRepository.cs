@@ -11,7 +11,7 @@ namespace DoE.Lsm.Data.Repositories.Inventories
     using Repositories;
     using WF.Engine.Context;
 
-    public class InventoryRepository : RepositoryFactory<Inventory> , IInventoryRepository
+    public class InventoryRepository : Repository<Inventory> , IInventoryRepository
     {
 
         public void UpdateInventory(string inventoryId, int quantity)

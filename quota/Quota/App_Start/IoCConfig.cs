@@ -6,7 +6,7 @@ namespace DoE.Lsm.Web
     using Controllers;
     using Microsoft.Practices.Unity;
     using Areas.Requisitions.Controllers;
-    using Services.Caller.IoC;
+    using Services.Repository.Local.IoC;
 
     /// <summary>
     ///         Users Microsoft Unity 3.0 to configure container for IoC
@@ -31,7 +31,7 @@ namespace DoE.Lsm.Web
         /// <param name="container"></param>
         public static void Register(IUnityContainer container)
         {
-            ServicesContainer<IUnityContainer>.Package(container);
+            DependanciesContainer<IUnityContainer>.Package(container);
             container.RegisterType<BaseController>();
             container.RegisterType<HomeController>();
             container.RegisterType<CaptureRequisitionsController>();

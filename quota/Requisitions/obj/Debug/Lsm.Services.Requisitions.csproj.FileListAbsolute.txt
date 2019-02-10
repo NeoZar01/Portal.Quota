@@ -1,0 +1,17 @@
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Requisitions\bin\Debug\Requisitions.dll.config
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Requisitions\bin\Debug\Requisitions.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Requisitions\bin\Debug\Requisitions.pdb
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Requisitions\bin\Debug\DoE.Lsm.Data.Repositories.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Requisitions\bin\Debug\Lsm.Web.Core.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Requisitions\bin\Debug\EntityFramework.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Requisitions\bin\Debug\DoE.Lsm.Logger.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Requisitions\bin\Debug\DoE.Lsm.WF.Engine.Context.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Requisitions\bin\Debug\PagedList.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Requisitions\bin\Debug\DoE.Lsm.Annotations.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Requisitions\bin\Debug\Lsm.Web.Core.pdb
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Requisitions\bin\Debug\DoE.Lsm.Data.Repositories.pdb
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Requisitions\bin\Debug\EntityFramework.xml
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Requisitions\bin\Debug\PagedList.xml
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Requisitions\obj\Debug\Lsm.Services.Requisitions.csprojResolveAssemblyReference.cache
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Requisitions\obj\Debug\Requisitions.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Requisitions\obj\Debug\Requisitions.pdb

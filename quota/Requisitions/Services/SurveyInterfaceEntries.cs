@@ -9,7 +9,7 @@ namespace Lsm.Services.Component.Requisitions.Services
     using Api;
     using DoE.Lsm.Data.Repositories;
 
-    public class SurveyInterfaceEntries : ISurveyInterfaceEntries
+    public class SurveyInterfaceEntries : ISurveyRepository
     {
 
         public int TEACHER_GUIDE_CD_001 = 0;
@@ -21,8 +21,8 @@ namespace Lsm.Services.Component.Requisitions.Services
 
         public void LoadStandardsAndNorms(string bookYear)
         {
-           int.TryParse(_repositoryManager.SnE.GetNorm("BOOKSQUOTA", nameof(TEACHER_GUIDE_CD_001), bookYear), out TEACHER_GUIDE_CD_001);
-           int.TryParse(_repositoryManager.SnE.GetNorm("BOOKSQUOTA", nameof(TEACHER_GUIDE_CD_002), bookYear), out TEACHER_GUIDE_CD_002);
+           //int.TryParse(_repositoryManager.SnE.GetNorm("BOOKSQUOTA", nameof(TEACHER_GUIDE_CD_001), bookYear), out TEACHER_GUIDE_CD_001);
+           //int.TryParse(_repositoryManager.SnE.GetNorm("BOOKSQUOTA", nameof(TEACHER_GUIDE_CD_002), bookYear), out TEACHER_GUIDE_CD_002);
         }
 
         public int TEACHER_GUIDE_CD_OPTION_O1
@@ -38,14 +38,14 @@ namespace Lsm.Services.Component.Requisitions.Services
 
         public DateTime EffectiveFrom
         {
-            get
-            { return _repositoryManager.SnE.EffectiveFrom; }
+            get;
+        //    { return _repositoryManager.SnE.EffectiveFrom; }
         }
 
         public DateTime ExpiresOn
         {
-            get
-            { return _repositoryManager.SnE.ExpiresOn; }
+            get;
+    //        { return _repositoryManager.SnE.ExpiresOn; }
         }
 
         public string SurveyId
@@ -61,15 +61,15 @@ namespace Lsm.Services.Component.Requisitions.Services
         }
 
         #region Helpers 
-        protected readonly IRepositoryStoreManager _repositoryManager;
+        protected readonly IUnitOfWork _repositoryManager;
 
       
 
-        public SurveyInterfaceEntries(IRepositoryStoreManager repositoryManager)
+        public SurveyInterfaceEntries(IUnitOfWork repositoryManager)
         {
             this._repositoryManager = repositoryManager;
 
-            LoadStandardsAndNorms(repositoryManager.SnE.BookYear);
+      //      LoadStandardsAndNorms(repositoryManager.SnE.BookYear);
         }
         #endregion
     }

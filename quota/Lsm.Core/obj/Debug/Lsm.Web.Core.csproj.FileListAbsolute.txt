@@ -1,0 +1,5 @@
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Core\bin\Debug\Lsm.Web.Core.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Core\bin\Debug\Lsm.Web.Core.pdb
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Core\obj\Debug\Lsm.Web.Core.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Core\obj\Debug\Lsm.Web.Core.pdb
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Core\obj\Debug\Lsm.Web.Core.csprojResolveAssemblyReference.cache

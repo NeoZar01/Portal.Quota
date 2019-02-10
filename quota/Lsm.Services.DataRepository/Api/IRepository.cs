@@ -14,8 +14,6 @@ namespace DoE.Lsm.Data.Repositories
     using System.Linq.Expressions;
     using System.Threading.Tasks;
 
-
-
     public enum ComparisonFlavor
     {
        Equal   
@@ -27,39 +25,49 @@ namespace DoE.Lsm.Data.Repositories
         ///<summary>
         ///   Adds a new row to your table
         ///</summary
-        void Push(TEntity entity);
+        void Push(TEntity entity, [System.Runtime.CompilerServices.CallerMemberName] string memberName = "", 
+                                  [System.Runtime.CompilerServices.CallerFilePathAttribute] string filePath = "", 
+                                  [System.Runtime.CompilerServices.CallerLineNumberAttribute] int lineNumber = 0);
+
+        ///<summary>
+        ///</summary
+        void TryPush(TEntity entity, [System.Runtime.CompilerServices.CallerMemberName] string memberName = "",
+                                     [System.Runtime.CompilerServices.CallerFilePathAttribute] string filePath = "",
+                                     [System.Runtime.CompilerServices.CallerLineNumberAttribute] int lineNumber = 0);
 
         ///<summary>
         /// Adds a range of values to your table 
         ///</summary
-        void PushRange(IEnumerable<TEntity> entities);
+        void PushRange(IEnumerable<TEntity> entities, 
+                                             [System.Runtime.CompilerServices.CallerMemberName] string memberName = "",
+                                             [System.Runtime.CompilerServices.CallerFilePathAttribute] string filePath = "",
+                                             [System.Runtime.CompilerServices.CallerLineNumberAttribute] int lineNumber = 0);
 
         ///<summary>
         ///  Searches your tables by passing an lambda expression
         ///  <return name="IEnumerable<TEntity>"> IEnumerable<TEntity> of results se based on the condition build by the passed expression </return>
         /// <param name="Expression<Funct<TEntity,bool>>"> Lamdba expression</param>
         ///</summary
-        IEnumerable<TEntity> Many(Expression<Func<TEntity, bool>> predicate);
+        IEnumerable<TEntity> Many(Expression<Func<TEntity, bool>> predicate, [System.Runtime.CompilerServices.CallerMemberName] string memberName = "",
+                                                                             [System.Runtime.CompilerServices.CallerFilePathAttribute] string filePath = "",
+                                                                             [System.Runtime.CompilerServices.CallerLineNumberAttribute] int lineNumber = 0);
 
-        ///<summary>
-        ///  
-        ///</summary
-        TEntity Single(int id);
+        TEntity Single(int id, [System.Runtime.CompilerServices.CallerMemberName] string memberName = "",
+                               [System.Runtime.CompilerServices.CallerFilePathAttribute] string filePath = "",
+                               [System.Runtime.CompilerServices.CallerLineNumberAttribute] int lineNumber = 0);
 
-        ///<summary>
-        ///
-        ///</summary
-        Task<TEntity> SingleAsync(int id);
+        Task<TEntity> SingleAsync(int id, [System.Runtime.CompilerServices.CallerMemberName] string memberName = "",
+                                          [System.Runtime.CompilerServices.CallerFilePathAttribute] string filePath = "",
+                                          [System.Runtime.CompilerServices.CallerLineNumberAttribute] int lineNumber = 0);
 
-        ///<summary>
-        ///
-        ///</summary
-        void Remove(TEntity entity);
+        void Remove(TEntity entity, [System.Runtime.CompilerServices.CallerMemberName] string memberName = "",
+                                    [System.Runtime.CompilerServices.CallerFilePathAttribute] string filePath = "",
+                                    [System.Runtime.CompilerServices.CallerLineNumberAttribute] int lineNumber = 0);
 
-        ///<summary>
-        ///
-        ///</summary
-        void RemoveRange(IEnumerable<TEntity> entities);
+        void RemoveRange(IEnumerable<TEntity> entities, 
+                                    [System.Runtime.CompilerServices.CallerMemberName] string memberName = "",
+                                    [System.Runtime.CompilerServices.CallerFilePathAttribute] string filePath = "",
+                                    [System.Runtime.CompilerServices.CallerLineNumberAttribute] int lineNumber = 0);
 
         // Searches your tables by passing an lambda expression
         ///<summary>
@@ -67,18 +75,9 @@ namespace DoE.Lsm.Data.Repositories
         ///  <return name="IEnumerable<TEntity>"> IEnumerable<TEntity> of results se based on the condition build by the passed expression </return>
         /// <param name="Expression<Funct<TEntity,bool>>"> Lamdba expression</param>
         ///</summary
-        IEnumerable<TEntity> ManyAsync(Expression<Func<TEntity, bool>> predicate);
-
-
-        ///// <summary>
-        ///// 
-        ///// </summary>
-        ///// <param name="callback"></param>
-        ///// <param name="comparisonOperand"></param>
-        ///// <param name="comparisonFlavor"></param>
-        ///// <param name=""></param>
-        ///// <param name=""></param>
-        ///// <returns></returns>
-        //bool<TEntity> Exists(Expression<Func<TEntity, bool>> callback, object comparisonOperand, ComparisonFlavor comparisonFlavor, object outcomeX, object outcomeY );
+        IEnumerable<TEntity> ManyAsync(Expression<Func<TEntity, bool>> predicate, 
+                                     [System.Runtime.CompilerServices.CallerMemberName] string memberName = "",
+                                     [System.Runtime.CompilerServices.CallerFilePathAttribute] string filePath = "",
+                                     [System.Runtime.CompilerServices.CallerLineNumberAttribute] int lineNumber = 0);
     }
 }

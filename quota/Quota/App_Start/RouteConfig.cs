@@ -13,7 +13,7 @@ namespace Quota
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapMvcAttributeRoutes(); //Enable attribute routing.
+            //routes.MapMvcAttributeRoutes(); //Enable attribute routing.
 
             routes.MapRoute(
                 name: "Default",

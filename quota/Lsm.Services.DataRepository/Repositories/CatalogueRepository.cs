@@ -12,7 +12,7 @@ namespace DoE.Lsm.Data.Repositories.Catalogue
 
     using static Annotations.Dimensions;
 
-    public class CatalogueRepository : RepositoryFactory<object> , ICatalogueRepository
+    public class CatalogueRepository : Repository<object> , ICatalogueRepository
     {
 
         public CatalogueRepository(PortalLsm DbContext, ILogger logger) : base(DbContext, logger)

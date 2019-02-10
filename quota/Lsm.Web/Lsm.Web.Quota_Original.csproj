@@ -5552,9 +5552,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Lsm.Services.Container\Lsm.Services.Container.csproj">
+    <ProjectReference Include="..\Lsm.Services.Container\Lsm.Repository.Services.Local.csproj">
       <Project>{b5556090-2cf0-4731-acf9-595e887eede6}</Project>
-      <Name>Lsm.Services.Container</Name>
+      <Name>Lsm.Repository.Services.Local</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lsm.Services.Web.Repository\Lsm.Repository.Services.Web.csproj">
+      <Project>{2C2DEA7B-160C-41FC-A4A2-69BB80EAF4DC}</Project>
+      <Name>Lsm.Repository.Services.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

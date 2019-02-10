@@ -170,7 +170,6 @@
     <EntitySet Name="vw_ShoppingCardItems" EntityType="Portal.LsmModel.vw_ShoppingCardItems" />
     <EntitySet Name="vwTotalSubcityPerCircuits" EntityType="Portal.LsmModel.vwTotalSubcityPerCircuit" />
     <EntitySet Name="Requisitions" EntityType="Portal.LsmModel.Requisition" />
-    <EntitySet Name="InterfaceSurveys" EntityType="Portal.LsmModel.InterfaceSurvey" />
     <EntitySet Name="SurveysEntities" EntityType="Portal.LsmModel.SurveysEntity" />
   </EntityContainer>
   <EntityType Name="School">
@@ -433,26 +432,6 @@
     <Property Name="Status" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="SurveyKey" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
     <Property Name="TotalPrice" Type="Decimal" Precision="19" Scale="4" annotation:StoreGeneratedPattern="Computed" />
-  </EntityType>
-  <EntityType Name="InterfaceSurvey">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Guid" Nullable="false" />
-    <Property Name="InterfaceKey" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
-    <Property Name="SurveyKey" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
-    <Property Name="EntityType" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
-    <Property Name="AffectedEntities" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
-    <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="ExpiresOn" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Label" Type="String" MaxLength="144" FixedLength="false" Unicode="false" />
-    <Property Name="Curator" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
-    <Property Name="Data_001" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="Data_002" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="Data_003" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="Data_004" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="Data_005" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="IsEffective" Type="Boolean" />
   </EntityType>
   <EntityType Name="SurveysEntity">
     <Key>

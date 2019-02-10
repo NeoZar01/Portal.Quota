@@ -351,27 +351,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="InterfaceSurveys">
-      <EntityTypeMapping TypeName="Portal.LsmModel.InterfaceSurvey">
-        <MappingFragment StoreEntitySet="InterfaceSurveys">
-          <ScalarProperty Name="IsEffective" ColumnName="IsEffective" />
-          <ScalarProperty Name="Data_005" ColumnName="Data_005" />
-          <ScalarProperty Name="Data_004" ColumnName="Data_004" />
-          <ScalarProperty Name="Data_003" ColumnName="Data_003" />
-          <ScalarProperty Name="Data_002" ColumnName="Data_002" />
-          <ScalarProperty Name="Data_001" ColumnName="Data_001" />
-          <ScalarProperty Name="Curator" ColumnName="Curator" />
-          <ScalarProperty Name="Label" ColumnName="Label" />
-          <ScalarProperty Name="ExpiresOn" ColumnName="ExpiresOn" />
-          <ScalarProperty Name="EffectiveFrom" ColumnName="EffectiveFrom" />
-          <ScalarProperty Name="AffectedEntities" ColumnName="AffectedEntities" />
-          <ScalarProperty Name="EntityType" ColumnName="EntityType" />
-          <ScalarProperty Name="SurveyKey" ColumnName="SurveyKey" />
-          <ScalarProperty Name="InterfaceKey" ColumnName="InterfaceKey" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="SurveysEntities">
       <EntityTypeMapping TypeName="Portal.LsmModel.SurveysEntity">
         <MappingFragment StoreEntitySet="SurveysEntities">

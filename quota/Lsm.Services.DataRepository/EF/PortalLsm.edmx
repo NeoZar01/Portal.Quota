@@ -5,26 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Portal.LsmModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="InterfaceSurveys">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="InterfaceKey" Type="varchar" MaxLength="64" Nullable="false" />
-          <Property Name="SurveyKey" Type="varchar" MaxLength="64" Nullable="false" />
-          <Property Name="EntityType" Type="varchar" MaxLength="64" Nullable="false" />
-          <Property Name="AffectedEntities" Type="varchar" MaxLength="64" Nullable="false" />
-          <Property Name="EffectiveFrom" Type="datetime" Nullable="false" />
-          <Property Name="ExpiresOn" Type="datetime" Nullable="false" />
-          <Property Name="Label" Type="varchar" MaxLength="144" />
-          <Property Name="Curator" Type="varchar" MaxLength="64" Nullable="false" />
-          <Property Name="Data_001" Type="varchar" MaxLength="255" />
-          <Property Name="Data_002" Type="varchar" MaxLength="255" />
-          <Property Name="Data_003" Type="varchar" MaxLength="255" />
-          <Property Name="Data_004" Type="varchar" MaxLength="255" />
-          <Property Name="Data_005" Type="varchar" MaxLength="255" />
-          <Property Name="IsEffective" Type="bit" />
-        </EntityType>
         <EntityType Name="SurveysEntities">
           <Key>
             <PropertyRef Name="Id" />
@@ -464,7 +444,6 @@ warning 6002: The table/view 'Portal.Lsm.Production.vwTotalSubcityPerCircuit' do
           <Property Name="BookYear" Type="nvarchar" MaxLength="9" Nullable="false" />
         </EntityType>
         <EntityContainer Name="PortalLsmModelStoreContainer">
-          <EntitySet Name="InterfaceSurveys" EntityType="Self.InterfaceSurveys" Schema="DataExtract" store:Type="Tables" />
           <EntitySet Name="SurveysEntities" EntityType="Self.SurveysEntities" Schema="DataExtract" store:Type="Tables" />
           <EntitySet Name="Schools" EntityType="Self.Schools" Schema="MasterFile" store:Type="Tables" />
           <EntitySet Name="Authors" EntityType="Self.Authors" Schema="Production" store:Type="Tables" />
@@ -805,7 +784,6 @@ warning 6002: The table/view 'Portal.Lsm.Production.vwTotalSubcityPerCircuit' do
           <EntitySet Name="vw_ShoppingCardItems" EntityType="Portal.LsmModel.vw_ShoppingCardItems" />
           <EntitySet Name="vwTotalSubcityPerCircuits" EntityType="Portal.LsmModel.vwTotalSubcityPerCircuit" />
           <EntitySet Name="Requisitions" EntityType="Portal.LsmModel.Requisition" />
-          <EntitySet Name="InterfaceSurveys" EntityType="Portal.LsmModel.InterfaceSurvey" />
           <EntitySet Name="SurveysEntities" EntityType="Portal.LsmModel.SurveysEntity" />
         </EntityContainer>
         <EntityType Name="School">
@@ -1068,26 +1046,6 @@ warning 6002: The table/view 'Portal.Lsm.Production.vwTotalSubcityPerCircuit' do
           <Property Name="Status" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="SurveyKey" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
           <Property Name="TotalPrice" Type="Decimal" Precision="19" Scale="4" annotation:StoreGeneratedPattern="Computed" />
-        </EntityType>
-        <EntityType Name="InterfaceSurvey">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="InterfaceKey" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Name="SurveyKey" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Name="EntityType" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Name="AffectedEntities" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ExpiresOn" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Label" Type="String" MaxLength="144" FixedLength="false" Unicode="false" />
-          <Property Name="Curator" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Name="Data_001" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="Data_002" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="Data_003" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="Data_004" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="Data_005" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="IsEffective" Type="Boolean" />
         </EntityType>
         <EntityType Name="SurveysEntity">
           <Key>
@@ -1451,27 +1409,6 @@ warning 6002: The table/view 'Portal.Lsm.Production.vwTotalSubcityPerCircuit' do
                 <ScalarProperty Name="ReqNO" ColumnName="ReqNO" />
                 <ScalarProperty Name="ProcessCaseToken" ColumnName="ProcessCaseToken" />
                 <ScalarProperty Name="InstanceId" ColumnName="InstanceId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="InterfaceSurveys">
-            <EntityTypeMapping TypeName="Portal.LsmModel.InterfaceSurvey">
-              <MappingFragment StoreEntitySet="InterfaceSurveys">
-                <ScalarProperty Name="IsEffective" ColumnName="IsEffective" />
-                <ScalarProperty Name="Data_005" ColumnName="Data_005" />
-                <ScalarProperty Name="Data_004" ColumnName="Data_004" />
-                <ScalarProperty Name="Data_003" ColumnName="Data_003" />
-                <ScalarProperty Name="Data_002" ColumnName="Data_002" />
-                <ScalarProperty Name="Data_001" ColumnName="Data_001" />
-                <ScalarProperty Name="Curator" ColumnName="Curator" />
-                <ScalarProperty Name="Label" ColumnName="Label" />
-                <ScalarProperty Name="ExpiresOn" ColumnName="ExpiresOn" />
-                <ScalarProperty Name="EffectiveFrom" ColumnName="EffectiveFrom" />
-                <ScalarProperty Name="AffectedEntities" ColumnName="AffectedEntities" />
-                <ScalarProperty Name="EntityType" ColumnName="EntityType" />
-                <ScalarProperty Name="SurveyKey" ColumnName="SurveyKey" />
-                <ScalarProperty Name="InterfaceKey" ColumnName="InterfaceKey" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

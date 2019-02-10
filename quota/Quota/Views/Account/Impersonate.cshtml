@@ -9,11 +9,12 @@
 
 <div class="row ">
     <br /><br /><br /><br />
-    <br /><br /><br /><br />
+    <br />
     <div class=" middle-box text-center loginscreen  animated fadeInDown">
         <div>
             <div class="col-md-4"></div>
-            <div class="col-md-4">
+            <div class="col-md-4"></div>
+            <div class="col-md-3">
                 <div class="clearfix"></div>
                 <section class="login_content" id="loginForm" style="background-color:white!important">
                     @using (Html.BeginForm("ImpersonateUser", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
@@ -44,7 +45,7 @@
                     }
                 </section>
             </div>
-            <div class="col-md-4"></div>
+
         </div>
     </div>
 </div>

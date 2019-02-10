@@ -4,7 +4,7 @@ using DoE.Lsm.Logger;
 
 namespace DoE.Lsm.Data.Repositories.Orders
 {
-    public class OrderRepository : RepositoryFactory<Inventory> , IOrderRepository
+    public class OrderRepository : Repository<Inventory> , IOrdersRepository
     {
 
         public OrderRepository(PortalLsm DbContext, ILogger logger):base(DbContext, logger) {}

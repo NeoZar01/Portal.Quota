@@ -1,18 +1,20 @@
-﻿namespace DoE.Lsm.ShoppingCart.Norms.Validations
+﻿using System;
+
+namespace DoE.Lsm.Web.Services.Validations
 {
     using Api;
-    using Rules;
-    using Exceptions;
+    using Data.Repositories;
     using Core.Constants;
+    using ShoppingCart.Norms.Validations.Exceptions;
 
     using static Core.Constants.VettingOutcome;
-    using System;
-    using Data.Repositories;
 
-    public partial class ValidationCallbackContainer : IValidationCallbackContainer
+    public partial class ValidationCallbackProvider : IValidationCallbackProvider
     {
 
-
+        public ValidationCallbackProvider()
+        {
+        }
 
         public VettingOutcome LearnerGuideQuotaValidationCallback(int category, int teacherCount, int quantity, int quota)
         {
@@ -53,15 +55,23 @@
             }
         }
 
+        public string GroupPolicyValidator(string entityId, string modelKey)
+        {
+
+            var access = VettingOutcome.Failed;
+
+            return  access.ToString();
+        }
+
         #region Helpers
-        protected readonly IRepositoryStoreManager _repositoryManager;
-        public ValidationCallbackContainer(IRepositoryStoreManager repositoryManager)
+        protected readonly IUnitOfWork _repositoryManager;
+        public ValidationCallbackProvider(IUnitOfWork repositoryManager)
         { this._repositoryManager = repositoryManager; }
         #endregion
     }
 
-    #region RequisitionsSurveysCallBackMethods 
-    public partial class ValidationCallbackContainer {
+    #region RequisitionsSurveysCallbacks
+    public partial class ValidationCallbackProvider {
 
         public string RequisitionsSurveysExpiryDateValidationCallback(DateTime expiresOn, string surveyId, string entityId)
         {
@@ -72,12 +82,10 @@
 
         public string RequisitionsSurveysExpiryDateValidationCallback(string surveyId, string entityId, DateTime expiresOn)
         {
-            return _repositoryManager.SnE.IsSurveyEntityInstalled(surveyId, entityId, expiresOn) ? "VALID" : "INVALID";
+            return null; // _repositoryManager.SnE.IsSurveyEntityInstalled(surveyId, entityId, expiresOn) ? "VALID" : "INVALID";
         }
 
     }
     #endregion
-
-
 
 }

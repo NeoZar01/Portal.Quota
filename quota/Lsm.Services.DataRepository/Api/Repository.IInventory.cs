@@ -2,11 +2,7 @@
 
 namespace DoE.Lsm.Data.Repositories.Inventories
 {
-
-    using Repositories;
-    using Repositories.EF;
-    using WF.Engine.Context;
-
+    using EF;
     public interface IInventoryRepository : IRepository<Inventory>
     {
 

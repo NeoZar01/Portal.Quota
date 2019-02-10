@@ -3,54 +3,54 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Data.Entity;
 
-namespace DoE.Lsm.ShoppingCart
+namespace DoE.Lsm.Web.ShoppingCart
 {
-    using Api;
-    using Proxies;
+    using Lsm.ShoppingCart.Api;
     using Data.Repositories;
     using Data.Repositories.EF;
-    using Norms.Validations.Api;
-    using Norms.Validations.Rules;
 
-    using static Lsm.Core.Constants.VettingOutcome;
+    using static Core.Constants.VettingOutcome;
     using global::Lsm.Services.Component.Requisitions.Api;
+    using Services.Component.Cache.Proxies;
+    using Services.Validations.Rules;
+    using Services.Validations.Api;
 
     public class ShoppingCartRepository : IShoppingCartRepository
     {
 
         private readonly string bookYear;
-        protected readonly IRepositoryStoreManager       _repositoryManager;
-        protected readonly IValidationCallbackContainer  _validationCallbacksContainer;
+        protected readonly IUnitOfWork       _repositoryManager;
+        protected readonly IValidationCallbackProvider _validationCallbaksContainer;
         private readonly TeacherGuideValidationRule teacherGuideValidation;
-        protected readonly ISurveyInterfaceEntries _norms;
+        protected readonly ISurveyRepository _norms;
 
 
-        public ShoppingCartRepository(IRepositoryStoreManager repositoryManager, IValidationCallbackContainer validationCallbacksContainer, ISurveyInterfaceEntries nrms )
+        public ShoppingCartRepository(IUnitOfWork repositoryManager, IValidationCallbackProvider validationCallbacksContainer, ISurveyRepository nrms )
         {
             this._repositoryManager            = repositoryManager;
-            this.bookYear                      = repositoryManager.SnE.BookYear;
-            this._validationCallbacksContainer = validationCallbacksContainer;
+            this.bookYear = "";// repositoryManager.SnE.BookYear;
+            this._validationCallbaksContainer = validationCallbacksContainer;
             this._norms                        =  nrms;
 
             teacherGuideValidation = new TeacherGuideValidationRule(nrms.TEACHER_GUIDE_CD_OPTION_O1 , nrms.TEACHER_GUIDE_CD_OPTION_O2);
         }
 
-        public async Task<int> AddToCard(string inventoryId, string instanceId, string reqNo, string emisCode, string calendar,  string surveyKey, byte minGrade, byte maxGrade, string status, int quantity)
+        public async Task<int> AddToCardAsync(string inventoryId, string instanceId, string reqNo, string emisCode, string calendar,  string surveyKey, byte minGrade, byte maxGrade, string status, int quantity)
         {
 
-            var inventoryItem = _repositoryManager.InventoryRegistry.IsInventoryAvailable(inventoryId, quantity);
+            var inventoryItem = _repositoryManager.InventoryService.IsInventoryAvailable(inventoryId, quantity);
 
             if (inventoryItem == null) throw new ArgumentNullException("inventoryId");
 
             var quota = inventoryItem.Quota ?? 0;
 
-            teacherGuideValidation.ActionTeacherGuideValidationWorker(_validationCallbacksContainer, quantity, ref quota, inventoryItem.CategoryCD, inventoryItem.Teacher_Enr);
+            teacherGuideValidation.ActionTeacherGuideValidationWorker(_validationCallbaksContainer, quantity, ref quota, inventoryItem.CategoryCD, inventoryItem.Teacher_Enr);
 
             switch (teacherGuideValidation.output)
             {
              case Passed:
 
-             var requisitionNumber = await _repositoryManager.RequisitionsStoreManager.MergeUsingAsync<Requisition>(instanceId, reqNo, emisCode , minGrade , maxGrade , calendar , status, surveyKey );
+             var requisitionNumber = await _repositoryManager.RequisitionService.MergeUsingAsync<Requisition>(instanceId, reqNo, emisCode , minGrade , maxGrade , calendar , status, surveyKey );
 
              if (string.IsNullOrEmpty(requisitionNumber))
              {
@@ -59,8 +59,8 @@ namespace DoE.Lsm.ShoppingCart
 
              try
              {
-                _repositoryManager.InventoryRegistry.UpdateInventory(inventoryId, quantity);
-                _repositoryManager.InventoryRegistry.SubEntityUpdatesCallback<Inventory, InventoryRequest>(instanceId, inventoryItem.InstanceId.ToString(), quantity, inventoryItem.CategoryCD, emisCode, inventoryItem.Price);
+                _repositoryManager.InventoryService.UpdateInventory(inventoryId, quantity);
+                _repositoryManager.InventoryService.SubEntityUpdatesCallback<Inventory, InventoryRequest>(instanceId, inventoryItem.InstanceId.ToString(), quantity, inventoryItem.CategoryCD, emisCode, inventoryItem.Price);
              }
              catch
              {
@@ -134,14 +134,14 @@ namespace DoE.Lsm.ShoppingCart
             return 0.00M;
         }
 
-        public async Task<ShoppingCartProxyModel> LoadCartInstanceAsync(string instanceId)
+        public async Task<ShoppingCardModelProxy> LoadCartInstanceAsync(string instanceId)
         {
 
             if (_norms.EffectiveFrom >= _norms.ExpiresOn || DateTime.Today > _norms.ExpiresOn)
             {
-                return new ShoppingCartProxyModel { ModelStatus = "INVALID" };
+                return new ShoppingCardModelProxy { ModelStatus = "INVALID" };
             }
-                var validModel = new ShoppingCartProxyModel {  ModelStatus ="VALID",  BookYear = _repositoryManager.SnE.BookYear };
+                var validModel = new ShoppingCardModelProxy {  ModelStatus ="VALID" };
 
                 return await Task.FromResult(validModel);             
         }

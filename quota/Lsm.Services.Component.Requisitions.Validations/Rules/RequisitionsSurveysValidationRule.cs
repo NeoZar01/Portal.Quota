@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DoE.Lsm.ShoppingCart.Norms.Validations.Rules
+namespace DoE.Lsm.Web.Services.Validations.Rules
 {
     using Api;
 
@@ -16,7 +16,7 @@ namespace DoE.Lsm.ShoppingCart.Norms.Validations.Rules
 
         public RequisitionsSurveysValidationCallback RequisitionsSurveysCheck;
 
-        public void ActionRequisitionsValidationWorker(IValidationCallbackContainer callback, DateTime expiresOn, string surveyId, string entityId, out string output)
+        public void ValidateRequisitions(IValidationCallbackProvider callback, DateTime expiresOn, string surveyId, string entityId, out string output)
         {
             RequisitionsSurveysCheck = callback.RequisitionsSurveysExpiryDateValidationCallback;
             output = RequisitionsSurveysCheck(expiresOn, surveyId , entityId);

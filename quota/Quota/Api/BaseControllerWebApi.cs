@@ -3,8 +3,12 @@ using Microsoft.AspNet.Identity;
 
 namespace DoE.Lsm.Web.Api
 {
+    using Models;
     using Logger;
     using Data.Repositories;
+    using Services.Component.Cache;
+    using Services.Validations.Api;
+    using Services.Web.Session.Cache;
 
     /// <summary>
     ///  This class should be inherited by classes that intends to be Api Controllers
@@ -12,37 +16,26 @@ namespace DoE.Lsm.Web.Api
     [Authorize]
     public class BaseControllerWebApi : ApiController
     {
-        public readonly ILogger _logger;
-        public readonly IRepositoryStoreManager _repositoryStore;
 
-        /// <summary>
-        ///    Returns Emis Code
-        /// </summary>
-        public virtual int EmisCode     { get { return User.Identity.GetUserName().ToInt(); } }
+        //public void CacheModelProperties(IValidationCallbackProvider validationContainer, params string[] modelKeys)
+        //{
+        //    _globalCache.CacheModelProperties(Prefetch, GetType().ToString(), "CacheModelProperties", 56, modelKeys);
+        //}
 
-        /// <summary>
-        ///    Returns Survey Code
-        /// </summary>
-        public virtual string SurveyCD  { get { return _repositoryStore.SnE.SurveyCD; } }
-
-        /// <summary>
-        ///    Returns survey Id
-        /// </summary>
-        public virtual string SurveyId  { get { return _repositoryStore.SnE.SurveyId; } }
-
-        /// <summary>
-        ///    returns PersonId 
-        /// </summary>
-        public virtual string PersonId { get { return User.Identity.PersonId(); } }
-
-
-        #region Helpers
+        #region CONSTRUCTOR IMPLEMENTATIONS
         public BaseControllerWebApi() { }
 
-        public BaseControllerWebApi(ILogger logger, IRepositoryStoreManager repositoryStore)
+        public readonly IGlobalCache _globalCache;
+        public readonly IValidationCallbackProvider _validationContainer;
+        public readonly ILogger _logger;
+        public readonly IUnitOfWork _repositoryStore;
+
+        public BaseControllerWebApi(ILogger logger, IUnitOfWork repositoryStore, IValidationCallbackProvider validationContainer, IGlobalCache globalCache)
         {
             this._logger = logger;
             this._repositoryStore = repositoryStore;
+            this._validationContainer = validationContainer;
+            this._globalCache = globalCache;
         }
 
         #endregion

@@ -1,0 +1,5 @@
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Component.Unit.Tests\bin\Debug\Lsm.Component.Unit.Tests.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Component.Unit.Tests\bin\Debug\Lsm.Component.Unit.Tests.pdb
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Component.Unit.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Component.Unit.Tests\obj\Debug\Lsm.Component.Unit.Tests.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Component.Unit.Tests\obj\Debug\Lsm.Component.Unit.Tests.pdb
