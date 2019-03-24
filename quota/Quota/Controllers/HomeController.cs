@@ -1,55 +1,50 @@
 ﻿using System.Web.Mvc;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 
-namespace DoE.Lsm.Web.Controllers
+namespace DoE.Quota.Web.Controllers
 {
-    using Models;
     using Api;
-    using Logger;
-    using Data.Repositories;
+    using Models;
+    using Entities;
 
-    using Services.Validations.Api;
-    using Services.Web.Session.Cache;
-    using Repository.Services.Local.Api;
-    using Lsm.Services.Identity.Claims.GroupPolicy.Resources;
+    using Core.Identity.Claims;
+    using Core.Extensions;
+    using Core.Models.Common;
+
+    using Repositories.Services.Contracts;
 
     [Authorize]
     public class HomeController : BaseController
     {
 
-        private readonly Dictionary<string, HomePageBuilder> modelDictionary = new Dictionary<string, HomePageBuilder>();
-
-        public HomeController(ILogger log, IUnitOfWork uow, IShoppingCartService shoppingCart, IValidationCallbackProvider validationCallback, IGlobalCache cache)  
-            : base(log, uow, shoppingCart, validationCallback, cache)
-        {
-            modelDictionary.Add(ModelKeys.SchoolDashboardViewModel, new SchoolHomePageViewModel(ModelKeys.SchoolDashboardViewModel));
-            modelDictionary.Add(ModelKeys.AdministratorDashboardViewModel, new AdministratorDashboardViewModel(ModelKeys.AdministratorDashboardViewModel));
-        }
+        protected readonly IShoppingCartService _shoppingCartService;
+        public HomeController(IShoppingCartService shoppingCartService) : base(shoppingCartService) {}
 
         [HttpGet]
         public ActionResult Index()
         {
-            var sessionCache = SetupSessionCache();
-
-            if(sessionCache != null)
+            IModel model = null;
+          
+            if (GroupPolicyCache != null)
             {
-                return View( modelDictionary[sessionCache.IdentityRole].ResolveHypertext<HomePageBuilder>(_uow, _validationCallback, null, sessionCache.IdentityId));
+                model = ResolveViewModel(GroupPolicyCache.GetAllPolicies())
+                        .Get<AdmnistratorHomeViewModel>(GroupPolicy.CAN_VIEW_ADMINISTRATION_HOMEPAGE)
+                        .Or<SchoolHomePageViewModel>(GroupPolicy.CAN_VIEW_SCHOOL_HOMEPAGE);
+
+                return View(model);
             }
-                return View();
+            //[TODO] Create view model for guests
+            model = ResolveViewModel(GroupPolicyCache.GetAllPolicies())
+                        .Get<SchoolHomePageViewModel>(GroupPolicy.EVERYONE_CAN_VIEW);
+           
+            return View(model);
         }
 
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
+        //public GlobalParameters globalParams = null;
         [HttpGet]
         [ChildActionOnly]
-        public ActionResult BuildDashboard(HomePageBuilder model)
+        public ActionResult RenderHomePage(HomeViewModel model)
         {
-            return PartialView(model.Page.IsNull("_mainpagedashboard_error"), model);
+            return PartialView(model.View.IsNull("_mainpagedashboard_error"), model);
         }
     }
 }

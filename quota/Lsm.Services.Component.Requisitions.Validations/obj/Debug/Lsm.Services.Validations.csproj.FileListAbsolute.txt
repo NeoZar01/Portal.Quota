@@ -1,16 +1,1 @@
-C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Component.Requisitions.Validations\bin\Debug\Lsm.Services.Component.Requisitions.Validations.dll
-C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Component.Requisitions.Validations\bin\Debug\Lsm.Services.Component.Requisitions.Validations.pdb
-C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Component.Requisitions.Validations\bin\Debug\DoE.Lsm.Data.Repositories.dll
-C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Component.Requisitions.Validations\bin\Debug\Lsm.Web.Core.dll
-C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Component.Requisitions.Validations\bin\Debug\EntityFramework.dll
-C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Component.Requisitions.Validations\bin\Debug\DoE.Lsm.Logger.dll
-C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Component.Requisitions.Validations\bin\Debug\DoE.Lsm.WF.Engine.Context.dll
-C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Component.Requisitions.Validations\bin\Debug\PagedList.dll
-C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Component.Requisitions.Validations\bin\Debug\DoE.Lsm.Annotations.dll
-C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Component.Requisitions.Validations\bin\Debug\Lsm.Web.Core.pdb
-C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Component.Requisitions.Validations\bin\Debug\DoE.Lsm.Data.Repositories.pdb
-C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Component.Requisitions.Validations\bin\Debug\EntityFramework.xml
-C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Component.Requisitions.Validations\bin\Debug\PagedList.xml
 C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Component.Requisitions.Validations\obj\Debug\Lsm.Services.Validations.csprojResolveAssemblyReference.cache
-C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Component.Requisitions.Validations\obj\Debug\Lsm.Services.Component.Requisitions.Validations.dll
-C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Component.Requisitions.Validations\obj\Debug\Lsm.Services.Component.Requisitions.Validations.pdb

@@ -18,7 +18,7 @@ namespace DoE.Lsm.Web.Models
         /// </summary>
         /// <param name="instanceId"></param>
         /// <returns></returns>
-        public override async Task<DashboardFactoryViewModel> TakeModel(string instanceId, IRepositoryStoreManager dataSource)
+        public override async Task<DashboardFactoryViewModel> TakeModel(string instanceId, IUnitOfWork uow)
         {        
             return await Task.FromResult( new SchoolDashboardViewModel {
                         Page     = "_mainpagedashboard_school"
@@ -38,7 +38,7 @@ namespace DoE.Lsm.Web.Models
         /// </summary>
         /// <param name="instanceId"></param>
         /// <returns></returns>
-        public override async Task<DashboardFactoryViewModel> TakeModel(string instanceId, IRepositoryStoreManager dataSource)
+        public override async Task<DashboardFactoryViewModel> TakeModel(string instanceId, IUnitOfWork dataSource)
         {
             return await Task.FromResult(new CircuitDashboardViewModel
             {
@@ -58,7 +58,7 @@ namespace DoE.Lsm.Web.Models
         /// </summary>
         /// <param name="instanceId"></param>
         /// <returns></returns>
-        public override async Task<DashboardFactoryViewModel> TakeModel(string instanceId, IRepositoryStoreManager dataSource)
+        public override async Task<DashboardFactoryViewModel> TakeModel(string instanceId, IUnitOfWork uow)
         {
             return await Task.FromResult(new AdministratorDashboardViewModel
             {   Page     = "_mainpagedashboard_administrator"
@@ -68,65 +68,21 @@ namespace DoE.Lsm.Web.Models
 
     public abstract class DashboardFactoryViewModel
     {
-        public DashboardFactoryViewModel()
-        {}
 
-        public virtual async Task<DashboardFactoryViewModel> TakeModel(string instanceId, IRepositoryStoreManager dataStore)
+        public virtual async Task<DashboardFactoryViewModel> TakeModel(string instanceId, IUnitOfWork uwo)
         {return await Task.FromResult(this);}
 
-
-        public int IsThereInMemoryRequisitions { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public string Page { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public string BookYear { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public int SubmittedRequisitions { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public int SubmissionTotalPrice { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public int InDrafts { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public int DraftsTotalPrice { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public int Rejects { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public int RejectsTotalPrice { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public int Approved { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public int ApprovedTotalPrice { get; set; }
-
+        public int IsThereInMemoryRequisitions    { get; set; }
+        public string Page                        { get; set; }
+        public string BookYear                    { get; set; }
+        public int SubmittedRequisitions          { get; set; }
+        public int SubmissionTotalPrice           { get; set; }
+        public int InDrafts                       { get; set; }
+        public int DraftsTotalPrice               { get; set; }
+        public int Rejects                        { get; set; }
+        public int RejectsTotalPrice              { get; set; }
+        public int Approved                       { get; set; }
+        public int ApprovedTotalPrice             { get; set; }
     }
 
     public class WebSearchViewModel

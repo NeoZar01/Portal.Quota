@@ -1,7 +1,7 @@
-﻿@model DashboardBuilderViewModel
+﻿@inherits BaseViewModel<HomeViewModel>
 
 @{
-    //ViewBag.Title = string.Concat("[ " ,  Model.BookYear , " ] Quota - ", "Requisitions Home " , " | ",User.Identity.GetUserName());
+    ViewBag.Title = string.Concat("[ " ,  Model.BookYear , " ] Quota - ", "Requisitions Home " , " | ", User.Identity.GetUserName());
 }
 
 <div class="row">

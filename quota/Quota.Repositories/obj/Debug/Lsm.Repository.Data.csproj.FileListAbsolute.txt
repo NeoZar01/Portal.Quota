@@ -1,0 +1,80 @@
+C:\Personal Work Drive\Quota\LimpEmisPortal\LsmPortal.Data.Repository\bin\Debug\DoE.Data.Repository.dll.config
+C:\Personal Work Drive\Quota\LimpEmisPortal\LsmPortal.Data.Repository\bin\Debug\DoE.Data.Repository.dll
+C:\Personal Work Drive\Quota\LimpEmisPortal\LsmPortal.Data.Repository\bin\Debug\DoE.Data.Repository.pdb
+C:\Personal Work Drive\Quota\LimpEmisPortal\LsmPortal.Data.Repository\bin\Debug\DoE.Lsm.Logger.dll
+C:\Personal Work Drive\Quota\LimpEmisPortal\LsmPortal.Data.Repository\bin\Debug\EntityFramework.dll
+C:\Personal Work Drive\Quota\LimpEmisPortal\LsmPortal.Data.Repository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Personal Work Drive\Quota\LimpEmisPortal\LsmPortal.Data.Repository\bin\Debug\PagedList.dll
+C:\Personal Work Drive\Quota\LimpEmisPortal\LsmPortal.Data.Repository\bin\Debug\PagedList.Mvc.dll
+C:\Personal Work Drive\Quota\LimpEmisPortal\LsmPortal.Data.Repository\bin\Debug\WF.Utils.Items.dll
+C:\Personal Work Drive\Quota\LimpEmisPortal\LsmPortal.Data.Repository\bin\Debug\DoE.Lsm.Files.dll
+C:\Personal Work Drive\Quota\LimpEmisPortal\LsmPortal.Data.Repository\bin\Debug\DoE.Lsm.Logger.pdb
+C:\Personal Work Drive\Quota\LimpEmisPortal\LsmPortal.Data.Repository\bin\Debug\WF.Utils.Items.pdb
+C:\Personal Work Drive\Quota\LimpEmisPortal\LsmPortal.Data.Repository\bin\Debug\EntityFramework.xml
+C:\Personal Work Drive\Quota\LimpEmisPortal\LsmPortal.Data.Repository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Personal Work Drive\Quota\LimpEmisPortal\LsmPortal.Data.Repository\bin\Debug\PagedList.xml
+C:\Personal Work Drive\Quota\LimpEmisPortal\LsmPortal.Data.Repository\bin\Debug\PagedList.Mvc.xml
+C:\Personal Work Drive\Quota\LimpEmisPortal\LsmPortal.Data.Repository\bin\Debug\DoE.Lsm.Files.pdb
+C:\Personal Work Drive\Quota\LimpEmisPortal\LsmPortal.Data.Repository\obj\Debug\Lsm.Repository.Data.csprojResolveAssemblyReference.cache
+C:\Personal Work Drive\Quota\LimpEmisPortal\LsmPortal.Data.Repository\obj\Debug\DoE.Data.Repository.dll
+C:\Personal Work Drive\Quota\LimpEmisPortal\LsmPortal.Data.Repository\obj\Debug\DoE.Data.Repository.pdb
+C:\Homework\Quota\QuotaPortal\LsmPortal.Data.Repository\bin\Debug\DoE.Data.Repository.dll.config
+C:\Homework\Quota\QuotaPortal\LsmPortal.Data.Repository\bin\Debug\DoE.Data.Repository.dll
+C:\Homework\Quota\QuotaPortal\LsmPortal.Data.Repository\bin\Debug\DoE.Data.Repository.pdb
+C:\Homework\Quota\QuotaPortal\LsmPortal.Data.Repository\bin\Debug\DoE.Lsm.Logger.dll
+C:\Homework\Quota\QuotaPortal\LsmPortal.Data.Repository\bin\Debug\EntityFramework.dll
+C:\Homework\Quota\QuotaPortal\LsmPortal.Data.Repository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Homework\Quota\QuotaPortal\LsmPortal.Data.Repository\bin\Debug\PagedList.dll
+C:\Homework\Quota\QuotaPortal\LsmPortal.Data.Repository\bin\Debug\PagedList.Mvc.dll
+C:\Homework\Quota\QuotaPortal\LsmPortal.Data.Repository\bin\Debug\WF.Utils.Items.dll
+C:\Homework\Quota\QuotaPortal\LsmPortal.Data.Repository\bin\Debug\DoE.Lsm.Files.dll
+C:\Homework\Quota\QuotaPortal\LsmPortal.Data.Repository\bin\Debug\DoE.Lsm.Logger.pdb
+C:\Homework\Quota\QuotaPortal\LsmPortal.Data.Repository\bin\Debug\WF.Utils.Items.pdb
+C:\Homework\Quota\QuotaPortal\LsmPortal.Data.Repository\bin\Debug\EntityFramework.xml
+C:\Homework\Quota\QuotaPortal\LsmPortal.Data.Repository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Homework\Quota\QuotaPortal\LsmPortal.Data.Repository\bin\Debug\PagedList.xml
+C:\Homework\Quota\QuotaPortal\LsmPortal.Data.Repository\bin\Debug\PagedList.Mvc.xml
+C:\Homework\Quota\QuotaPortal\LsmPortal.Data.Repository\bin\Debug\DoE.Lsm.Files.pdb
+C:\Homework\Quota\QuotaPortal\LsmPortal.Data.Repository\obj\Debug\Lsm.Repository.Data.csprojResolveAssemblyReference.cache
+C:\Homework\Quota\QuotaPortal\LsmPortal.Data.Repository\obj\Debug\DoE.Data.Repository.dll
+C:\Homework\Quota\QuotaPortal\LsmPortal.Data.Repository\obj\Debug\DoE.Data.Repository.pdb
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\EntityFramework.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\PagedList.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\PagedList.Mvc.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\PostSharp.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\EntityFramework.xml
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\PagedList.xml
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\PagedList.Mvc.xml
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\PostSharp.xml
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\obj\Debug\PostSharp\touch
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\obj\Debug\PostSharp\dependencies.txt
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\obj\Debug\PostSharp\postsharp.app.config
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\obj\Debug\Lsm.Repository.Data.csprojResolveAssemblyReference.cache
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\DoE.Lsm.Repositories.Data.pssym
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\DoE.Lsm.Repositories.Data.dll.config
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\DoE.Lsm.Repositories.Data.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\DoE.Lsm.Repositories.Data.pdb
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\Core.Globals.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\Core.Logger.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\log4net.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\Core.Web.Notify.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\Owin.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\Microsoft.Owin.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\Core.Globals.pdb
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\Core.Logger.pdb
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\log4net.xml
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\Microsoft.AspNet.SignalR.Core.pdb
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\Core.Web.Notify.pdb
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\Microsoft.Owin.Security.xml
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\Microsoft.Owin.xml
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\obj\Debug\DoE.Lsm.Repositories.Data.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\obj\Debug\DoE.Lsm.Repositories.Data.pdb
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\Core.Repositories.Data.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.DataRepository\bin\Debug\Core.Repositories.Data.pdb

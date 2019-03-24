@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C185039A-79AE-47FF-BCB5-419FFF9579A4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DoE.Quota.Services.Validations</RootNamespace>
+    <AssemblyName>Quota.Services.Validations</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Core.Globals, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\DoE\DoE.Core\DoE.Core\bin\Debug\Core.Globals.dll</HintPath>
+    </Reference>
+    <Reference Include="Core.Logger, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\DoE\DoE.Core\DoE.Core\bin\Debug\Core.Logger.dll</HintPath>
+    </Reference>
+    <Reference Include="Core.Repositories.Data">
+      <HintPath>..\..\..\..\..\..\..\DoE\DoE.Core\DoE.Core\bin\Debug\Core.Repositories.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Core.Validation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\DoE\DoE.Core\DoE.Core\bin\Debug\Core.Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\IValidationCallbacksHandler.cs" />
+    <Compile Include="Rules\RequisitionsValidationRule.cs" />
+    <Compile Include="Validations\ValidationCallbacksHandler.cs" />
+    <Compile Include="Exceptions\LearnerGuideException.cs" />
+    <Compile Include="Exceptions\TeacherGuideRuleException.cs" />
+    <Compile Include="Rules\LearnerGuideValidationRule.cs" />
+    <Compile Include="Rules\TeacherGuideValidationRule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\DoE.Core\Core.GlobalExtensions\Core.Extensions.csproj">
+      <Project>{941be2df-23e1-4552-a5a6-a3098392287b}</Project>
+      <Name>Core.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DoE.Core\Core.Globalization\Core.Globalization.csproj">
+      <Project>{5aa1dd40-9615-4f38-8dc2-e603dd816202}</Project>
+      <Name>Core.Globalization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DoE.Core\Core.Models\Core.Models.csproj">
+      <Project>{9e9c44a7-600e-4efb-8a64-3f8f510cc9a8}</Project>
+      <Name>Core.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DoE.Core\Core.Repositories\Core.Repositories.csproj">
+      <Project>{060ef1c2-422a-473b-9ac1-638cfb59a1b9}</Project>
+      <Name>Core.Repositories</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

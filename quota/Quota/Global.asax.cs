@@ -7,17 +7,17 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace DoE.Lsm.Web
+namespace DoE.Quota.Web
 {
     using Api;
     using Quota;
-    using DoE.Lsm.Web;
+    using DoE.Quota.Web;
 
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
         {
-            DependencyResolver.SetResolver(new ServicesBroker(IoCConfig.LoadContainer()));
+            DependencyResolver.SetResolver(new UnityServicesProvider(UnityConfig.LoadContainer()));
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

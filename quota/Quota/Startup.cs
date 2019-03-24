@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(DoE.Lsm.Web.Startup))]
-namespace DoE.Lsm.Web
+[assembly: OwinStartupAttribute(typeof(DoE.Quota.Web.Startup))]
+namespace DoE.Quota.Web
 {
     public partial class Startup
     {

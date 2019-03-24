@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace DoE.Lsm.Web.Services.Validations.Rules
+namespace DoE.Quota.Web.Services.Validations.Rules
 {
     using Api;
-    using Web.Core.Constants;
+    using Core.Globals;
 
     public sealed class TeacherGuideValidationRule
     {
@@ -28,7 +28,7 @@ namespace DoE.Lsm.Web.Services.Validations.Rules
 
         public TeacherGuidesValidationCallback TeacherGuidesCallback;
 
-        public void ActionTeacherGuideValidationWorker(IValidationCallbackProvider callback, int quantity, ref int quota, int category, int teacherCount)
+        public void ActionTeacherGuideValidationWorker(IValidationCallbacksHandler callback, int quantity, ref int quota, int category, int teacherCount)
         {
             TeacherGuidesCallback = callback.TeacherGuideQuotaCheckCallback;
             output = TeacherGuidesCallback(quantity, ref quota, category, teacherCount, teacher_guide_cd_option_x01, teacher_guide_cd_option_x02);

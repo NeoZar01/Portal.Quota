@@ -1,90 +1,186 @@
 ﻿using System;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using Microsoft.AspNet.Identity;
-using System.Runtime.CompilerServices;
+using System.Collections.Generic;
 
-namespace DoE.Lsm.Web.Api
+using Core.Globalization;
+using Core.Data.Globalization;
+
+namespace DoE.Quota.Web.Api
 {
-    using Logger;
     using Models;
-    using Services.Api;
-    using Data.Repositories;
-    using Lsm.ShoppingCart.Api;
-    using Services.Validations.Api;
-    using Services.Web.Session.Cache;
-    using global::Lsm.Services.Mvc.Component.SessionCache.Api;
-    using Services.Web.Session.Cache.Models;
+    using Entities;
+
+    using Core.Models.Common;
+    using Core.Identity.Claims;
+
+    using Repositories.Services.Contracts;
+    using Core.Web.Utilities.Common;
+    using Core.Models;
 
     [Authorize]
-    public class BaseController : Controller , IGlobalCache
+    public class BaseController : Controller 
     {
+        public static ModelCollection modelCollector;
 
-        #region   CONSTRUCTOR IMPLEMENTATION
 
-        public readonly ILogger _logger;
-        public readonly IUnitOfWork _uow;
-        public readonly IShoppingCartRepository _shoppingCart;
-        public readonly IValidationCallbackProvider _validationCallback;
-        public readonly IGlobalCache _globalCache;
+        #region   [::CONSTRUCTOR::]
 
-        public BaseController(ILogger logger, IUnitOfWork uow, IShoppingCartRepository shoppingcart, IValidationCallbackProvider validationContainer, IGlobalCache globalCache)
+        static BaseController()
         {
-            this._logger = logger;
-            this._uow = uow;
+            modelCollector = ModelCollection.InitializeCollector();
+        }
+
+        protected readonly IShoppingCartService _shoppingCart;
+        public BaseController(IShoppingCartService shoppingcart)
+        {
             this._shoppingCart = shoppingcart;
-            this._validationCallback = validationContainer;
-            this._globalCache = globalCache;
         }
 
         public BaseController()
         {}
         #endregion      
 
-        public new void OnException(ExceptionContext filterContext)
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
 
-            base.OnException(filterContext);
-        }
-
-        public new void OnActionExecuting(ActionExecutingContext filterContext)
-        {
-            var test_ = "Hello World Cup!!!!";
+          if (System.Web.HttpContext.Current.Request.AppRelativeCurrentExecutionFilePath.Contains("~/Home/Index"))
+            {
+                //TODO Handle home page refresh instructions. 
+            }
 
             base.OnActionExecuting(filterContext);
         }
 
-        public void AddItem<TModel>(string key, TModel item)
+        protected override void OnResultExecuted(ResultExecutedContext filterContext)
         {
-            _globalCache.AddItem<TModel>(key, item);
-            System.Web.HttpContext.Current.Session[key] = item;
+            if (System.Web.HttpContext.Current.Request.AppRelativeCurrentExecutionFilePath.Contains("LogOff"))
+            {
+                filterContext.HttpContext.Response.Cache.SetExpires(DateTime.UtcNow.AddDays(-1));
+                filterContext.HttpContext.Response.Cache.SetValidUntilExpires(false);
+                filterContext.HttpContext.Response.Cache.SetRevalidation(HttpCacheRevalidation.AllCaches);
+                filterContext.HttpContext.Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                filterContext.HttpContext.Response.Cache.SetNoStore();
+            }
+
+            base.OnResultExecuted(filterContext);
         }
 
-        public void RemoveItem<TModel>(string key)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="claims"></param>
+        /// <returns></returns>
+        protected IModel ResolveViewModel(IEnumerable<KeyValuePair<string, string>> claims)
         {
-            _globalCache.RemoveItem<TModel>(key);
-            System.Web.HttpContext.Current.Session[key] = null;
+            IModel vmodel = null;
+
+            foreach(var claim in claims)
+            {
+                if (claim.Value.Equals(DefaultDbValue.TRUE))
+                {
+                    modelCollector.Resolve<HomeViewModel>(claim.Key, out vmodel);
+                }
+
+                if (vmodel != null) break;
+            }
+
+
+            if (vmodel == null)
+            {
+                modelCollector.Resolve<HomeViewModel>(GroupPolicy.EVERYONE_CAN_VIEW, out vmodel);
+            }
+
+            return vmodel;
         }
 
-        public void RefreshItem<TModel>(string key, TModel item)
+        /// <summary>
+        /// 
+        /// </summary>
+        public GroupPolicy GroupPolicyCache
         {
-            _globalCache.RefreshItem<TModel>(key, item);
+            get
+            {
+                var groupPolicy = HttpContext.Cache.Get(CacheKeys.GROUP_POLICY);
 
-            System.Web.HttpContext.Current.Session[key] = null;
-            System.Web.HttpContext.Current.Session[key] = item;
+                if(groupPolicy != null)
+                {
+                    return groupPolicy as GroupPolicy;
+                }
+                return null;
+            }
         }
 
-        public SessionCache SetupSessionCache() 
+        public CallInfo RequestInfo
         {
-            AddItem<string>(CacheKey.EmisCode, User.Identity.GetUserName());
-            AddItem<string>(CacheKey.IdentityId, User.Identity.GetPersonalId());
+            get
+            {
+                string id = Guid.NewGuid().ToString();
 
-            return new SessionCache { EmisCode = Get<string>(CacheKey.EmisCode),  IdentityId = Get<string>(CacheKey.IdentityId)};
+                var currentRequest = new CallInfo
+                {
+                    Controller  = RouteData.Values["Controller"].ToString(),
+                    Action      = RouteData.Values["Action"].ToString(),
+                    CallVerb    = System.Web.HttpContext.Current.Request.HttpMethod
+                };
+
+                currentRequest.CallTime = DateTime.Now;
+                currentRequest.Id       = id;                             
+                return currentRequest;
+            }
         }
 
-        public TModel Get<TModel>(string key)
+        private ActionResult RedirectToLocal(string returnUrl, IModel viewModel)
         {
-            return _globalCache.Get<TModel>(key);
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            return RedirectToAction("Index", "Home", viewModel);
         }
-    }      
+
+        #region [::Global Cache Methods::]
+        //public void Add(string key, CacheVariable variable)
+        //{
+        //    _globalCache.Add(key, variable);
+        //}
+
+        //public void KillKey(string key)
+        //{
+        //    _globalCache.KillKey(key);
+        //}
+
+        //public void RefreshKey(string key, CacheVariable checksum, out CacheVariable output)
+        //{
+        //    _globalCache.RefreshKey(key, checksum, out output);
+        //}
+
+        //public CacheVariable Get(string key)
+        //{
+        //    return _globalCache.Get(key);
+        //}
+
+        //public CacheVariable TryGet(string key, CacheVariable checksum)
+        //{
+        //   return _globalCache.TryGet(key, checksum);
+        //}
+
+
+        //public void GetPrefetch(out GlobalParameters globalParameters)
+        //{
+
+        //    if (Get(GlobalCacheKeys.PREFETCH) == null)
+        //    {
+        //        var parameters = new GlobalParameters { EmisCode = User.Identity.GetUserName(), UserId = User.Identity.GetUserId() };
+
+        //        Add(GlobalCacheKeys.PREFETCH, CacheVariable.Push(parameters, VariableStatus.IsAlive));
+        //    }
+
+        //    globalParameters = Get(GlobalCacheKeys.PREFETCH).Value as GlobalParameters;
+        //}
+
+        #endregion
+    }
 }

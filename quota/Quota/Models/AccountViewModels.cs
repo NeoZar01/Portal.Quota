@@ -1,19 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using DoE.Core.Web.Models;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System;
 
-namespace DoE.Lsm.Web.Models
+namespace DoE.Quota.Web.Models
 {
-    public class ExternalLoginConfirmationViewModel
-    {
-        [Required]
-        [Display(Name = "Email")]
-        public string Email { get; set; }
-    }
-
-    public class ExternalLoginListViewModel
-    {
-        public string ReturnUrl { get; set; }
-    }
+ 
 
     public class SendCodeViewModel
     {
@@ -46,8 +38,9 @@ namespace DoE.Lsm.Web.Models
         public string Email { get; set; }
     }
 
-    public class LoginViewModel
+    public class LoginViewModel : BaseViewModel<LoginViewModel>
     {
+
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
@@ -60,25 +53,13 @@ namespace DoE.Lsm.Web.Models
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
-    }
 
-    public class RegisterViewModel
-    {
-        [Required]
-        [EmailAddress]
-        [Display(Name = "Email")]
-        public string Email { get; set; }
+        public override void 
+        Execute() {this.Execute();}
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
-        [DataType(DataType.Password)]
-        [Display(Name = "Password")]
-        public string Password { get; set; }
-
-        [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
-        public string ConfirmPassword { get; set; }
+        public 
+        LoginViewModel(string view) 
+        : base(view) { }
     }
 
     public class ResetPasswordViewModel

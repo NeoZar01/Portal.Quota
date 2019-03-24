@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DoE.Lsm.Web.Views.Shared {
+namespace DoE.Quota.Web.Views.Shared {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace DoE.Lsm.Web.Views.Shared {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DoE.Lsm.Web.Views.Shared.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DoE.Quota.Web.Views.Shared.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

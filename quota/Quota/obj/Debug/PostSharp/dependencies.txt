@@ -1,2 +1,0 @@
-C:\ProgramData\PostSharp\6.0.28\bin.Release\net471\PostSharp.Compiler.Engine.dll
-C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Quota\obj\Debug\PostSharp\postsharp.config

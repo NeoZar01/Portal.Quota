@@ -12,7 +12,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 
 
-namespace DoE.Lsm.Web
+namespace DoE.Quota.Web
 {
     using Models;
 

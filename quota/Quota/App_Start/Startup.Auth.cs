@@ -6,7 +6,7 @@ using System;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 
-namespace DoE.Lsm.Web
+namespace DoE.Quota.Web
 {
     using Models;
 

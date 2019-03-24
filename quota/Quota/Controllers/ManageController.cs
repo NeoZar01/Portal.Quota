@@ -8,7 +8,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Quota.Models;
 
-namespace DoE.Lsm.Web.Controllers
+namespace DoE.Quota.Web.Controllers
 {
     [Authorize]
     public class ManageController : Controller

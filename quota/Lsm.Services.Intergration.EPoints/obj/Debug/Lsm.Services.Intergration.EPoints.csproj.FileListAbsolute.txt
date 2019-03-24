@@ -1,0 +1,6 @@
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Intergration.EPoints\bin\Debug\Lsm.Services.Intergration.EPoints.dll.config
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Intergration.EPoints\bin\Debug\Lsm.Services.Intergration.EPoints.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Intergration.EPoints\bin\Debug\Lsm.Services.Intergration.EPoints.pdb
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Intergration.EPoints\obj\Debug\Lsm.Services.Intergration.EPoints.csprojResolveAssemblyReference.cache
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Intergration.EPoints\obj\Debug\Lsm.Services.Intergration.EPoints.dll
+C:\Users\Nomfundo\Source\Repos\Portal.Quota\quota\Lsm.Services.Intergration.EPoints\obj\Debug\Lsm.Services.Intergration.EPoints.pdb
